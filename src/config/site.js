@@ -101,6 +101,11 @@ const site = {
     { label: '역할 부여', path: '/learn/role-system' },
     { label: '글쓰기 실전', path: '/practice/writing' },
     { label: '코딩 실전', path: '/practice/coding' }
+  ],
+  familySites: [
+    { name: 'DreamIT Biz (본사이트)', url: 'https://www.dreamitbiz.com' },
+    { name: 'KoreaTech 컴퓨팅 사고', url: 'https://koreatech.dreamitbiz.com' },
+    { name: 'DB Study 데이터베이스', url: 'https://db-study.dreamitbiz.com' }
   ]
 }
 

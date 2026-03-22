@@ -5,6 +5,41 @@
 
 ---
 
+## [1.8.0] - 2026-03-23
+
+### Changed
+
+- 푸터를 db-study 패턴으로 리뉴얼 (GitHub Repository 삭제, 연락처/사업자정보/Family Site 추가)
+- 푸터 hover 색상을 블루(#93C5FD)로 변경
+
+### Added
+
+- 푸터에 연락처 섹션 추가 (이메일, 전화, 카카오톡, 영업시간)
+- 푸터에 Family Site 드롭다운 추가 (DreamIT Biz, KoreaTech, DB Study)
+- 푸터 하단에 사업자 정보 추가 (대표이사, 사업자등록번호, 통신판매번호, 출판사 신고번호)
+- site.js에 familySites 설정 추가
+
+### Removed
+
+- 푸터에서 GitHub Repository 링크 삭제
+- 푸터 하단의 React + Vite / Supabase Auth / Prompt Engineering 메타 정보 삭제
+
+---
+
+## [1.7.0] - 2026-03-23
+
+### Added
+
+- 상단 드롭다운 메뉴에 대표 페이지 경로(path) 추가
+- 데스크톱: hover로 하위 메뉴 표시 + 클릭 시 대표 페이지 이동
+- 모바일: 클릭으로 드롭다운 토글 유지
+
+### Fixed
+
+- 메인 페이지 아이콘 색상이 컬러셋 변경에 실시간 연동되도록 수정 (var(--primary) → var(--primary-blue))
+
+---
+
 ## [1.6.2] - 2026-03-23
 
 ### Changed

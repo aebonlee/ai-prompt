@@ -70,7 +70,32 @@
     line-height: 1.6;
 }
 
-.footer-nav-links a:hover { color: #C4B5FD; }
+.footer-nav-links a:hover { color: #93C5FD; }
+
+/* Family Site */
+.footer-family { margin-top: 16px; }
+
+.footer-family select {
+    width: 100%;
+    max-width: 220px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    appearance: auto;
+}
+
+.footer-family select:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-family select option {
+    background: #1f2937;
+    color: #e5e7eb;
+}
 
 .footer-contact-list {
     display: flex;
@@ -88,7 +113,7 @@
     transition: color 0.2s;
 }
 
-a.footer-contact-row:hover { color: #C4B5FD; }
+a.footer-contact-row:hover { color: #93C5FD; }
 
 .footer-contact-row svg {
     flex-shrink: 0;
