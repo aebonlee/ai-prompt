@@ -68,18 +68,8 @@ const site = {
     {
       label: '실습워크북',
       children: [
-        { label: '워크북 홈', path: '/workbook' },
-        { label: '프롬프트 엔지니어링이란?', path: '/workbook/what-is-prompt' },
-        { label: 'AI 모델 이해하기', path: '/workbook/ai-models' },
-        { label: '프롬프트 구조와 패턴', path: '/workbook/structure' },
-        { label: 'Few-shot 기법', path: '/workbook/few-shot' },
-        { label: 'Chain-of-Thought', path: '/workbook/chain-of-thought' },
-        { label: '역할 부여와 시스템 프롬프트', path: '/workbook/role-system' },
-        { label: '실전: 글쓰기', path: '/workbook/writing' },
-        { label: '실전: 코딩', path: '/workbook/coding' },
-        { label: '실전: 데이터 분석', path: '/workbook/analysis' },
-        { label: '실전: 번역', path: '/workbook/translation' },
-        { label: '실전: 비즈니스', path: '/workbook/business' }
+        { label: '워크북 목록', path: '/workbook' },
+        { label: '워크북 등록', path: '/workbook/write' }
       ]
     },
     { label: '참고문서', path: '/references' },

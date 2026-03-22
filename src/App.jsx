@@ -52,6 +52,8 @@ const LectureTranslation = lazy(() => import('./pages/lectures/LectureTranslatio
 const LectureBusiness = lazy(() => import('./pages/lectures/LectureBusiness'))
 
 const WorkbookHome = lazy(() => import('./pages/workbook/WorkbookHome'))
+const WorkbookWriteForm = lazy(() => import('./pages/workbook/WorkbookWrite'))
+const WorkbookDetailView = lazy(() => import('./pages/workbook/WorkbookDetail'))
 const WorkbookWhatIsPrompt = lazy(() => import('./pages/workbook/WorkbookWhatIsPrompt'))
 const WorkbookAiModels = lazy(() => import('./pages/workbook/WorkbookAiModels'))
 const WorkbookStructure = lazy(() => import('./pages/workbook/WorkbookStructure'))
@@ -127,6 +129,9 @@ export default function App() {
               <Route path="/lectures/business" element={<LectureBusiness />} />
 
               <Route path="/workbook" element={<WorkbookHome />} />
+              <Route path="/workbook/write" element={<ProtectedRoute><WorkbookWriteForm /></ProtectedRoute>} />
+              <Route path="/workbook/edit/:id" element={<ProtectedRoute><WorkbookWriteForm /></ProtectedRoute>} />
+              <Route path="/workbook/view/:id" element={<WorkbookDetailView />} />
               <Route path="/workbook/what-is-prompt" element={<WorkbookWhatIsPrompt />} />
               <Route path="/workbook/ai-models" element={<WorkbookAiModels />} />
               <Route path="/workbook/structure" element={<WorkbookStructure />} />
