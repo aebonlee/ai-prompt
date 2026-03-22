@@ -125,7 +125,7 @@ export default function AiModels() {
           </ul>
         </div>
 
-        <div className="lesson-nav"><Link to="/intro/what-is-prompt" className="lesson-nav-btn prev">← 이전: 프롬프트란?</Link><Link to="/learn/structure" className="lesson-nav-btn next">다음: 프롬프트 구조와 패턴 →</Link></div>
+        <div className="lesson-nav"><Link to="/intro/what-is-prompt" className="lesson-nav-btn prev">← 이전: 프롬프트란?</Link><Link to="/intro/chatgpt" className="lesson-nav-btn next">다음: ChatGPT (OpenAI) →</Link></div>
       </div></div></section>
     </>
   )

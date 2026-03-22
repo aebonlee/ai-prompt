@@ -22,7 +22,10 @@ const site = {
       label: 'PE 개론',
       children: [
         { label: '프롬프트 엔지니어링이란?', path: '/intro/what-is-prompt' },
-        { label: 'AI 모델 이해하기', path: '/intro/ai-models' }
+        { label: 'AI 모델 이해하기', path: '/intro/ai-models' },
+        { label: 'ChatGPT (OpenAI)', path: '/intro/chatgpt' },
+        { label: 'Claude (Anthropic)', path: '/intro/claude' },
+        { label: 'Gemini (Google)', path: '/intro/gemini' }
       ]
     },
     {

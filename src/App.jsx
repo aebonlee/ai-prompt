@@ -12,6 +12,9 @@ const Profile = lazy(() => import('./pages/Profile'))
 
 const WhatIsPrompt = lazy(() => import('./pages/intro/WhatIsPrompt'))
 const AiModels = lazy(() => import('./pages/intro/AiModels'))
+const IntroChatGPT = lazy(() => import('./pages/intro/ChatGPT'))
+const IntroClaude = lazy(() => import('./pages/intro/Claude'))
+const IntroGemini = lazy(() => import('./pages/intro/Gemini'))
 
 const PromptStructure = lazy(() => import('./pages/learn/PromptStructure'))
 const FewShot = lazy(() => import('./pages/learn/FewShot'))
@@ -88,6 +91,9 @@ export default function App() {
 
               <Route path="/intro/what-is-prompt" element={<WhatIsPrompt />} />
               <Route path="/intro/ai-models" element={<AiModels />} />
+              <Route path="/intro/chatgpt" element={<IntroChatGPT />} />
+              <Route path="/intro/claude" element={<IntroClaude />} />
+              <Route path="/intro/gemini" element={<IntroGemini />} />
 
               <Route path="/learn/structure" element={<PromptStructure />} />
               <Route path="/learn/few-shot" element={<FewShot />} />
