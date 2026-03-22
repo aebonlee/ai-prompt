@@ -71,14 +71,24 @@ export default function Navbar() {
         <ul className={`nav-menu${mobileOpen ? ' active' : ''}`}>
           {site.menuItems.map((item, idx) =>
             item.children ? (
-              <li key={idx} className="nav-item-dropdown">
-                <a
-                  className={`nav-link${item.children.some(c => isActive(c.path)) ? ' active' : ''}`}
-                  href="#"
-                  onClick={e => { e.preventDefault(); handleDropdownToggle(idx) }}
+              <li
+                key={idx}
+                className="nav-item-dropdown"
+                onMouseEnter={() => setOpenDropdown(idx)}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <Link
+                  to={item.path}
+                  className={`nav-link${item.children.some(c => isActive(c.path)) || isActive(item.path) ? ' active' : ''}`}
+                  onClick={e => {
+                    if (mobileOpen) {
+                      e.preventDefault()
+                      handleDropdownToggle(idx)
+                    }
+                  }}
                 >
                   {item.label}
-                </a>
+                </Link>
                 <ul className={`dropdown-menu${openDropdown === idx ? ' active' : ''}`}>
                   {item.children.map((child, cidx) => (
                     <li key={cidx}>

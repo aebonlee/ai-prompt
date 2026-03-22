@@ -20,6 +20,7 @@ const site = {
   menuItems: [
     {
       label: 'PE 개론',
+      path: '/intro/what-is-prompt',
       children: [
         { label: '프롬프트 엔지니어링이란?', path: '/intro/what-is-prompt' },
         { label: 'AI 모델 이해하기', path: '/intro/ai-models' },
@@ -30,6 +31,7 @@ const site = {
     },
     {
       label: '학습하기',
+      path: '/learn/structure',
       children: [
         { label: '프롬프트 구조와 패턴', path: '/learn/structure' },
         { label: 'Few-shot 기법', path: '/learn/few-shot' },
@@ -39,6 +41,7 @@ const site = {
     },
     {
       label: '실전 활용',
+      path: '/practice/writing',
       children: [
         { label: '글쓰기', path: '/practice/writing' },
         { label: '코딩', path: '/practice/coding' },
@@ -49,6 +52,7 @@ const site = {
     },
     {
       label: 'AI활용 Tip!',
+      path: '/ai-tips',
       children: [
         { label: 'ChatGPT', path: '/ai-tips/chatgpt' },
         { label: 'Claude', path: '/ai-tips/claude' },
@@ -63,6 +67,7 @@ const site = {
     { label: '실습', path: '/playground' },
     {
       label: '강의안',
+      path: '/lectures',
       children: [
         { label: '강의안 목록', path: '/lectures' },
         { label: '강의안 등록', path: '/lectures/write' }
@@ -70,6 +75,7 @@ const site = {
     },
     {
       label: '실습워크북',
+      path: '/workbook',
       children: [
         { label: '워크북 목록', path: '/workbook' },
         { label: '워크북 등록', path: '/workbook/write' }
@@ -79,6 +85,7 @@ const site = {
     { label: '즐겨찾기', path: '/favorites' },
     {
       label: '커뮤니티',
+      path: '/community',
       children: [
         { label: '게시판', path: '/community' },
         { label: '글쓰기', path: '/community/write' }
