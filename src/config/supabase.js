@@ -8,7 +8,14 @@ const supabaseAnonKey = import.meta.env[`${PREFIX}ANON_KEY`]
 let supabase = null
 
 if (supabaseUrl && supabaseAnonKey) {
-  supabase = createClient(supabaseUrl, supabaseAnonKey)
+  supabase = createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      flowType: 'pkce',
+      detectSessionInUrl: true,
+      autoRefreshToken: true,
+      persistSession: true,
+    }
+  })
 } else {
   console.warn(
     'Supabase 환경 변수가 설정되지 않았습니다.\n' +

@@ -17,19 +17,28 @@ export function AuthProvider({ children }) {
       return
     }
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       setUser(session?.user ?? null)
-      setLoading(false)
+      if (event === 'INITIAL_SESSION') {
+        setLoading(false)
+      }
     })
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
-    })
+    // 안전장치: 5초 내 INITIAL_SESSION 없으면 강제 해제
+    const fallback = setTimeout(() => {
+      setLoading(prev => {
+        if (prev) console.warn('Auth: INITIAL_SESSION timeout')
+        return false
+      })
+    }, 5000)
 
-    return () => subscription.unsubscribe()
+    return () => {
+      clearTimeout(fallback)
+      subscription.unsubscribe()
+    }
   }, [])
 
-  const noSupabaseError = { error: { message: 'Supabase가 설정되지 않았습니다. 관리자에게 문의하세요.' } }
+  const noSupabaseError = { error: { message: 'Supabase가 설정되지 않았습니다.' } }
 
   const signUp = async (email, password, displayName) => {
     if (!supabase) return noSupabaseError
@@ -45,32 +54,34 @@ export function AuthProvider({ children }) {
 
   const signIn = async (email, password) => {
     if (!supabase) return noSupabaseError
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    })
-    return { data, error }
-  }
-
-  const signInWithGithub = async () => {
-    if (!supabase) return noSupabaseError
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'github'
-    })
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
     return { data, error }
   }
 
   const signInWithGoogle = async () => {
     if (!supabase) return noSupabaseError
     const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'google'
+      provider: 'google',
+      options: { redirectTo: window.location.origin + window.location.pathname }
+    })
+    return { data, error }
+  }
+
+  const signInWithKakao = async () => {
+    if (!supabase) return noSupabaseError
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'kakao',
+      options: {
+        redirectTo: window.location.origin + window.location.pathname,
+        scopes: 'profile_nickname profile_image account_email',
+      }
     })
     return { data, error }
   }
 
   const signOut = async () => {
     if (!supabase) return noSupabaseError
-    const { error } = await supabase.auth.signOut()
+    const { error } = await supabase.auth.signOut({ scope: 'local' })
     return { error }
   }
 
@@ -79,8 +90,8 @@ export function AuthProvider({ children }) {
     loading,
     signUp,
     signIn,
-    signInWithGithub,
     signInWithGoogle,
+    signInWithKakao,
     signOut
   }
 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import SEOHead from '../components/SEOHead'
 
 const templates = [
@@ -12,9 +12,19 @@ const templates = [
 export default function Playground() {
   const [prompt, setPrompt] = useState('')
   const [history, setHistory] = useState([])
+  const textareaRef = useRef(null)
+
+  const autoResize = useCallback(() => {
+    const el = textareaRef.current
+    if (el) {
+      el.style.height = 'auto'
+      el.style.height = Math.max(200, el.scrollHeight) + 'px'
+    }
+  }, [])
 
   const handleTemplate = (template) => {
     setPrompt(template.prompt)
+    requestAnimationFrame(autoResize)
   }
 
   const handleAnalyze = () => {
@@ -30,6 +40,7 @@ export default function Playground() {
 
   const handleClear = () => {
     setPrompt('')
+    if (textareaRef.current) textareaRef.current.style.height = '200px'
   }
 
   return (
@@ -61,10 +72,11 @@ export default function Playground() {
 
           <h2 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '12px' }}>프롬프트 입력</h2>
           <textarea
+            ref={textareaRef}
             className="playground-input"
             placeholder="여기에 프롬프트를 입력하세요...&#10;&#10;예: '당신은 전문 번역가입니다. 다음 한국어 문장을 자연스러운 영어로 번역해주세요.'"
             value={prompt}
-            onChange={e => setPrompt(e.target.value)}
+            onChange={e => { setPrompt(e.target.value); autoResize() }}
           />
           <div className="playground-actions">
             <button className="btn btn-primary" onClick={handleAnalyze} style={{ padding: '10px 24px' }}>

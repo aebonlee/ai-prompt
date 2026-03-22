@@ -466,17 +466,19 @@
 
 .playground-input {
   width: 100%;
-  min-height: 360px;
+  min-height: 200px;
   padding: 16px;
   border: 2px solid var(--border-light);
   border-radius: var(--radius-md);
   font-family: inherit;
   font-size: 1rem;
   line-height: 1.7;
-  resize: vertical;
+  resize: none;
+  overflow: hidden;
   transition: border-color 0.2s;
   background: var(--bg-white);
   color: var(--text-primary);
+  box-sizing: border-box;
 }
 
 .playground-input:focus {

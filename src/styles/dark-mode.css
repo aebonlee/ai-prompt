@@ -196,6 +196,46 @@
     color: #F9FAFB;
 }
 
+[data-theme="dark"] .auth-method-btn {
+    background: #111827;
+    border-color: #374151;
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .auth-method-btn.google {
+    background: #1F2937;
+    border-color: #374151;
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .auth-method-btn.google:hover {
+    background: #374151;
+}
+
+[data-theme="dark"] .auth-method-btn.kakao {
+    background: #FEE500;
+    color: #3C1E1E;
+}
+
+[data-theme="dark"] .auth-method-btn.email {
+    background: #1F2937;
+    border-color: #374151;
+}
+
+[data-theme="dark"] .auth-method-btn.email:hover {
+    background: #374151;
+}
+
+[data-theme="dark"] .auth-back-btn {
+    background: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .auth-back-btn:hover {
+    background: #374151;
+}
+
 [data-theme="dark"] .auth-social-btn {
     background: #111827;
     border-color: #374151;
