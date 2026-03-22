@@ -160,17 +160,14 @@
     border-color: var(--primary-blue);
 }
 
-.theme-toggle svg {
-    width: 20px;
-    height: 20px;
+.theme-toggle svg,
+.theme-toggle i {
     color: var(--text-secondary);
 }
 
 .sun-icon { display: none; }
 .moon-icon { display: none; }
-.auto-icon { display: none; }
 
-.theme-toggle[data-mode="auto"] .auto-icon { display: block; }
 .theme-toggle[data-mode="light"] .moon-icon { display: block; }
 .theme-toggle[data-mode="dark"] .sun-icon { display: block; }
 

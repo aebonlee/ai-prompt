@@ -70,6 +70,7 @@
 .curriculum-icon {
   font-size: 2.5rem;
   margin-bottom: 12px;
+  color: var(--primary);
 }
 
 .curriculum-card-title {
@@ -115,6 +116,7 @@
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 16px;
+  color: var(--primary);
 }
 
 .feature-title {
@@ -530,6 +532,7 @@
 .target-icon {
   font-size: 2.5rem;
   margin-bottom: 12px;
+  color: var(--primary);
 }
 
 .target-title {

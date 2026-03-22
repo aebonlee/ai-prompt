@@ -7,15 +7,14 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }) {
-  const [mode, setMode] = useState(() => localStorage.getItem('theme-mode') || 'auto')
-  const [colorTheme, setColorTheme] = useState(() => localStorage.getItem('color-theme') || 'purple')
+  const [mode, setMode] = useState(() => {
+    const saved = localStorage.getItem('theme-mode')
+    if (saved === 'light' || saved === 'dark') return saved
+    return 'light'
+  })
+  const [colorTheme, setColorTheme] = useState(() => localStorage.getItem('color-theme') || 'blue')
 
-  const getAutoTheme = () => {
-    const hour = new Date().getHours()
-    return (hour >= 6 && hour < 18) ? 'light' : 'dark'
-  }
-
-  const activeTheme = mode === 'auto' ? getAutoTheme() : mode
+  const activeTheme = mode
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', activeTheme)
@@ -24,20 +23,8 @@ export function ThemeProvider({ children }) {
     localStorage.setItem('color-theme', colorTheme)
   }, [activeTheme, colorTheme, mode])
 
-  useEffect(() => {
-    if (mode !== 'auto') return
-    const interval = setInterval(() => {
-      document.documentElement.setAttribute('data-theme', getAutoTheme())
-    }, 60000)
-    return () => clearInterval(interval)
-  }, [mode])
-
   const cycleMode = () => {
-    setMode(prev => {
-      if (prev === 'auto') return 'light'
-      if (prev === 'light') return 'dark'
-      return 'auto'
-    })
+    setMode(prev => prev === 'light' ? 'dark' : 'light')
   }
 
   return (
