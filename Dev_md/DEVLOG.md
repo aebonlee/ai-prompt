@@ -44,6 +44,28 @@
 | Dev_md markdownlint 39개 | MD 포맷팅 규칙 위반 | 빈 줄/테이블 포맷 수정 |
 | 레슨 페이지 상단 여백 없음 | `.section` 클래스 누락 | 11개 페이지에 `section` 클래스 추가 |
 
+14. **강의안/실습워크북/참고문서/커뮤니티 4개 메뉴 추가** - site.js menuItems 추가, App.jsx 라우트 등록, 각 페이지 컴포넌트 생성
+
+15. **강의안 동적 게시판 변환** - Supabase CRUD 기반 게시판 (koreatech 패턴), LecturesHome/LectureWrite/LectureDetail, lectureService.js
+
+16. **Supabase 테이블 ap_ 접두사 통일** - ap_lectures, ap_workbooks, ap_community 등 모든 테이블에 `ap_` 접두사 적용
+
+17. **실습워크북 동적 게시판 변환** - 강의안과 동일한 패턴으로 워크북 CRUD 게시판 구현
+
+18. **로그인 Google/Kakao OAuth 적용** - Supabase OAuth Provider 추가, 플레이그라운드 입력박스 자동확장(textarea auto-resize)
+
+19. **PE 개론 ChatGPT/Claude/Gemini 상세 페이지 추가** - 3개 AI 모델별 전용 페이지, site.js 메뉴 추가, App.jsx 라우트 등록
+
+20. **커뮤니티 글쓰기 버튼 글자색 수정** - 다크모드에서 버튼 텍스트 안보이는 문제 해결
+
+21. **즐겨찾기 페이지 추가** - GenAI 추천 사이트 모음, 9개 카테고리 ~60개 사이트, References.jsx 패턴 동일
+
+22. **메인 페이지 Font Awesome 아이콘 교체** - 이모지를 Font Awesome 6.5.1 아이콘으로 교체, 주컬러 적용
+
+23. **블루 테마 적용** - 초기 컬러셋 purple → blue 변경, 컬러 피커 팔레트 아이콘, 파비콘 블루 SVG, OG 이미지 블루 재생성
+
+24. **테마 전환 시스템모드 제거** - auto/system 모드 삭제, light/dark 토글만 유지
+
 ### 커밋 이력
 
 - `da75a5c` feat: AI 프롬프트 엔지니어링 학습 사이트 초기 구축 (48 files)
@@ -55,3 +77,14 @@
 - `4232099` fix: AOS 스크롤 애니메이션 미작동으로 콘텐츠 숨김 수정
 - `be9fc65` feat: AI활용 Tip! 메뉴 추가 + 페이드인 효과 제거
 - `6d84537` fix: 레슨 페이지 상단 여백 수정 + Dev_md 문서 업데이트
+- `2512fc0` fix: 플레이그라운드 입력 박스 세로 영역 확대 + 문서 업데이트
+- `c41caf8` feat: 강의안/실습워크북/참고문서/커뮤니티 4개 신규 메뉴 추가
+- `81bafb0` feat: 강의안을 동적 게시판 형태로 변환 (koreatech 패턴 적용)
+- `31429c3` docs: 강의안 게시판 변환 구현 문서 추가
+- `4e1f081` refactor: Supabase 테이블에 ap_ 접두사 적용 및 네이밍 통일
+- `b5995c3` feat: 실습워크북을 동적 게시판으로 변환 + 사이트 평가 보고서 추가
+- `bdacc17` feat: 로그인 Google/Kakao OAuth 적용 + Playground 입력박스 자동확장
+- `6f7e830` feat: PE 개론에 ChatGPT/Claude/Gemini 상세 페이지 추가
+- `1c86f19` fix: 커뮤니티 글쓰기 버튼 글자색이 안보이는 문제 수정
+- `6224a17` feat: 즐겨찾기 페이지 추가 - GenAI 추천 사이트 모음 (9개 카테고리 60개 사이트)
+- `2424253` feat: 메인 페이지 이모지를 Font Awesome 아이콘으로 교체 + 블루 테마 적용
