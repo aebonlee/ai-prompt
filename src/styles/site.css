@@ -70,7 +70,7 @@
 .curriculum-icon {
   font-size: 2.5rem;
   margin-bottom: 12px;
-  color: var(--primary);
+  color: var(--primary-blue);
 }
 
 .curriculum-card-title {
@@ -116,7 +116,7 @@
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 16px;
-  color: var(--primary);
+  color: var(--primary-blue);
 }
 
 .feature-title {
@@ -532,7 +532,7 @@
 .target-icon {
   font-size: 2.5rem;
   margin-bottom: 12px;
-  color: var(--primary);
+  color: var(--primary-blue);
 }
 
 .target-title {
