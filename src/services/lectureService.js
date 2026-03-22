@@ -5,7 +5,7 @@ const noSupabase = { data: null, error: { message: 'Supabase가 설정되지 않
 export async function getLectures() {
   if (!supabase) return { ...noSupabase, data: [] }
   const { data, error } = await supabase
-    .from('lectures')
+    .from('ap_lectures')
     .select('*')
     .eq('is_published', true)
     .order('week_number', { ascending: true })
@@ -15,7 +15,7 @@ export async function getLectures() {
 export async function getLecture(id) {
   if (!supabase) return noSupabase
   const { data, error } = await supabase
-    .from('lectures')
+    .from('ap_lectures')
     .select('*')
     .eq('id', id)
     .single()
@@ -25,7 +25,7 @@ export async function getLecture(id) {
 export async function createLecture({ weekNumber, title, content, fileUrl, isPublished, authorId, authorName }) {
   if (!supabase) return noSupabase
   const { data, error } = await supabase
-    .from('lectures')
+    .from('ap_lectures')
     .insert([{
       week_number: weekNumber,
       title,
@@ -43,7 +43,7 @@ export async function createLecture({ weekNumber, title, content, fileUrl, isPub
 export async function updateLecture(id, { weekNumber, title, content, fileUrl, isPublished }) {
   if (!supabase) return noSupabase
   const { data, error } = await supabase
-    .from('lectures')
+    .from('ap_lectures')
     .update({
       week_number: weekNumber,
       title,
@@ -60,7 +60,7 @@ export async function updateLecture(id, { weekNumber, title, content, fileUrl, i
 export async function deleteLecture(id) {
   if (!supabase) return noSupabase
   const { error } = await supabase
-    .from('lectures')
+    .from('ap_lectures')
     .delete()
     .eq('id', id)
   return { error }
@@ -68,17 +68,17 @@ export async function deleteLecture(id) {
 
 export async function incrementViews(id) {
   if (!supabase) return
-  await supabase.rpc('increment_lecture_views', { lecture_id: id }).catch(() => {
+  await supabase.rpc('ap_increment_lecture_views', { lecture_id: id }).catch(() => {
     // fallback: direct update
     supabase
-      .from('lectures')
+      .from('ap_lectures')
       .select('views')
       .eq('id', id)
       .single()
       .then(({ data }) => {
         if (data) {
           supabase
-            .from('lectures')
+            .from('ap_lectures')
             .update({ views: (data.views || 0) + 1 })
             .eq('id', id)
             .then(() => {})

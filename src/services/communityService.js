@@ -6,7 +6,7 @@ export async function getPosts(page = 1, pageSize = 10, category = null) {
   if (!supabase) return { ...noSupabase, count: 0 }
 
   let query = supabase
-    .from('posts')
+    .from('ap_posts')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .range((page - 1) * pageSize, page * pageSize - 1)
@@ -22,7 +22,7 @@ export async function getPosts(page = 1, pageSize = 10, category = null) {
 export async function getPost(id) {
   if (!supabase) return noSupabase
   const { data, error } = await supabase
-    .from('posts')
+    .from('ap_posts')
     .select('*')
     .eq('id', id)
     .single()
@@ -32,7 +32,7 @@ export async function getPost(id) {
 export async function createPost({ title, content, category, authorId, authorName }) {
   if (!supabase) return noSupabase
   const { data, error } = await supabase
-    .from('posts')
+    .from('ap_posts')
     .insert([{ title, content, category, author_id: authorId, author_name: authorName }])
     .select()
     .single()
@@ -42,7 +42,7 @@ export async function createPost({ title, content, category, authorId, authorNam
 export async function deletePost(id) {
   if (!supabase) return noSupabase
   const { error } = await supabase
-    .from('posts')
+    .from('ap_posts')
     .delete()
     .eq('id', id)
   return { error }
@@ -51,7 +51,7 @@ export async function deletePost(id) {
 export async function getComments(postId) {
   if (!supabase) return noSupabase
   const { data, error } = await supabase
-    .from('comments')
+    .from('ap_comments')
     .select('*')
     .eq('post_id', postId)
     .order('created_at', { ascending: true })
@@ -61,7 +61,7 @@ export async function getComments(postId) {
 export async function createComment({ postId, content, authorId, authorName }) {
   if (!supabase) return noSupabase
   const { data, error } = await supabase
-    .from('comments')
+    .from('ap_comments')
     .insert([{ post_id: postId, content, author_id: authorId, author_name: authorName }])
     .select()
     .single()
@@ -71,7 +71,7 @@ export async function createComment({ postId, content, authorId, authorName }) {
 export async function deleteComment(id) {
   if (!supabase) return noSupabase
   const { error } = await supabase
-    .from('comments')
+    .from('ap_comments')
     .delete()
     .eq('id', id)
   return { error }

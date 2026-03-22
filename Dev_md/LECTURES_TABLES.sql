@@ -1,59 +1,63 @@
 -- ============================================
--- AI Prompt 강의안 게시판 테이블
+-- AI Prompt 강의안 게시판 Supabase 테이블
+-- 접두사: ap_ (ai-prompt)
 -- Supabase SQL Editor에서 실행
 -- ============================================
 
--- lectures 테이블
-create table if not exists public.lectures (
-  id uuid primary key default gen_random_uuid(),
-  week_number integer not null,
-  title text not null,
-  content text default '',
-  file_url text default '',
-  is_published boolean default true,
-  views integer default 0,
-  author_id uuid references auth.users(id) on delete set null,
-  author_name text default '',
-  created_at timestamptz default now(),
-  updated_at timestamptz default now()
+-- 1. ap_lectures 테이블
+CREATE TABLE IF NOT EXISTS public.ap_lectures (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  week_number INTEGER NOT NULL,
+  title TEXT NOT NULL,
+  content TEXT DEFAULT '',
+  file_url TEXT DEFAULT '',
+  is_published BOOLEAN DEFAULT true,
+  views INTEGER DEFAULT 0,
+  author_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
+  author_name TEXT DEFAULT '',
+  created_at TIMESTAMPTZ DEFAULT now(),
+  updated_at TIMESTAMPTZ DEFAULT now()
 );
 
--- 인덱스
-create index if not exists idx_lectures_week on public.lectures(week_number);
-create index if not exists idx_lectures_created on public.lectures(created_at desc);
+-- 2. 인덱스
+CREATE INDEX IF NOT EXISTS idx_ap_lectures_week ON public.ap_lectures(week_number);
+CREATE INDEX IF NOT EXISTS idx_ap_lectures_created_at ON public.ap_lectures(created_at DESC);
 
--- RLS 활성화
-alter table public.lectures enable row level security;
+-- 3. updated_at 자동 갱신 트리거
+CREATE OR REPLACE FUNCTION public.ap_lectures_update_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = now();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
 
--- 누구나 공개된 강의안 읽기
-create policy "Anyone can read published lectures"
-  on public.lectures for select
-  using (is_published = true);
+CREATE TRIGGER trg_ap_lectures_updated_at
+  BEFORE UPDATE ON public.ap_lectures
+  FOR EACH ROW
+  EXECUTE FUNCTION public.ap_lectures_update_timestamp();
 
--- 인증 사용자 강의안 생성
-create policy "Auth users can create lectures"
-  on public.lectures for insert
-  with check (auth.uid() = author_id);
+-- 4. 조회수 증가 RPC 함수
+CREATE OR REPLACE FUNCTION public.ap_increment_lecture_views(lecture_id UUID)
+RETURNS VOID AS $$
+BEGIN
+  UPDATE public.ap_lectures
+  SET views = views + 1
+  WHERE id = lecture_id;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- 본인 강의안 수정
-create policy "Authors can update own lectures"
-  on public.lectures for update
-  using (auth.uid() = author_id);
+-- 5. RLS (Row Level Security)
+ALTER TABLE public.ap_lectures ENABLE ROW LEVEL SECURITY;
 
--- 본인 강의안 삭제
-create policy "Authors can delete own lectures"
-  on public.lectures for delete
-  using (auth.uid() = author_id);
+CREATE POLICY "ap_lectures_select" ON public.ap_lectures
+  FOR SELECT USING (is_published = true);
 
--- updated_at 자동 갱신 트리거
-create or replace function update_lectures_updated_at()
-returns trigger as $$
-begin
-  new.updated_at = now();
-  return new;
-end;
-$$ language plpgsql;
+CREATE POLICY "ap_lectures_insert" ON public.ap_lectures
+  FOR INSERT WITH CHECK (auth.uid() = author_id);
 
-create trigger set_lectures_updated_at
-  before update on public.lectures
-  for each row execute function update_lectures_updated_at();
+CREATE POLICY "ap_lectures_update" ON public.ap_lectures
+  FOR UPDATE USING (auth.uid() = author_id);
+
+CREATE POLICY "ap_lectures_delete" ON public.ap_lectures
+  FOR DELETE USING (auth.uid() = author_id);
