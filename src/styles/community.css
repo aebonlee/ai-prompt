@@ -35,7 +35,8 @@
   border-color: var(--primary-blue, #7C3AED);
 }
 
-.community-write-btn {
+.community-write-btn,
+.lesson-body a.community-write-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
