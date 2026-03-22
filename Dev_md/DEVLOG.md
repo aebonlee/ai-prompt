@@ -66,6 +66,10 @@
 
 24. **테마 전환 시스템모드 제거** - auto/system 모드 삭제, light/dark 토글만 유지
 
+25. **하위 메뉴 겹침 문제 수정** - dropdown-menu z-index 추가, hover 트리거 제거, 외부 클릭 시 닫기
+
+26. **og:title 변경** - 'AI Prompt - 프롬프트 엔지니어링 학습' → 'AI Prompt 프롬프트 엔지니어링 학습' (하이픈 제거)
+
 ### 커밋 이력
 
 - `da75a5c` feat: AI 프롬프트 엔지니어링 학습 사이트 초기 구축 (48 files)
@@ -88,3 +92,6 @@
 - `1c86f19` fix: 커뮤니티 글쓰기 버튼 글자색이 안보이는 문제 수정
 - `6224a17` feat: 즐겨찾기 페이지 추가 - GenAI 추천 사이트 모음 (9개 카테고리 60개 사이트)
 - `2424253` feat: 메인 페이지 이모지를 Font Awesome 아이콘으로 교체 + 블루 테마 적용
+- `1af9d99` docs: DEVLOG/CHANGELOG 업데이트 + 블루 테마 마이그레이션 문서 추가
+- `3518ab5` fix: 하위 메뉴 겹침 문제 수정 (z-index, hover 제거, 외부 클릭 닫기)
+- `b5068b4` fix: og:title을 'AI Prompt 프롬프트 엔지니어링 학습'으로 변경
