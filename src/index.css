@@ -6,5 +6,6 @@
 @import './styles/site.css';
 @import './styles/auth.css';
 @import './styles/community.css';
+@import './styles/lectures.css';
 @import './styles/dark-mode.css';
 @import './styles/responsive.css';

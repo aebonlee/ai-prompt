@@ -375,3 +375,131 @@
 [data-theme="dark"] .community-back-btn:hover {
     background: #1F2937;
 }
+
+/* Lecture board dark */
+[data-theme="dark"] .lecture-table {
+    background: #1F2937;
+    border-color: #374151;
+}
+
+[data-theme="dark"] .lecture-table thead th {
+    background: #111827;
+    color: #F9FAFB;
+    border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .lecture-table tbody td {
+    border-bottom-color: #374151;
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .lecture-table tbody tr:hover {
+    background: rgba(124, 58, 237, 0.08);
+}
+
+[data-theme="dark"] .lecture-table tbody tr.active-row {
+    background: rgba(124, 58, 237, 0.08);
+}
+
+[data-theme="dark"] .lecture-dropdown-content {
+    background: #111827;
+    border-top-color: #374151;
+}
+
+[data-theme="dark"] .lecture-content-text {
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .lecture-btn {
+    background: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .lecture-btn.newtab {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--primary-blue-light);
+    border-color: var(--primary-blue);
+}
+
+[data-theme="dark"] .lecture-btn.newtab:hover {
+    background: var(--primary-blue);
+    color: #fff;
+}
+
+[data-theme="dark"] .lecture-btn.download {
+    background: rgba(5, 150, 105, 0.1);
+    color: #34d399;
+    border-color: #059669;
+}
+
+[data-theme="dark"] .lecture-btn.download:hover {
+    background: #059669;
+    color: #fff;
+}
+
+[data-theme="dark"] .lecture-btn.edit-btn {
+    background: rgba(217, 119, 6, 0.1);
+    color: #fbbf24;
+    border-color: #d97706;
+}
+
+[data-theme="dark"] .lecture-btn.edit-btn:hover {
+    background: #d97706;
+    color: #fff;
+}
+
+[data-theme="dark"] .lecture-detail {
+    background: #1F2937;
+    border-color: #374151;
+}
+
+[data-theme="dark"] .lecture-detail-header {
+    border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .lecture-detail-title {
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .lecture-detail-content {
+    color: #D1D5DB;
+    border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .lecture-file-section {
+    border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .lecture-action-btn {
+    background: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .lecture-action-btn:hover {
+    background: #374151;
+}
+
+[data-theme="dark"] .lecture-action-btn.danger {
+    color: #fca5a5;
+    border-color: #ef4444;
+}
+
+[data-theme="dark"] .lecture-action-btn.danger:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
+[data-theme="dark"] .lecture-form-group input,
+[data-theme="dark"] .lecture-form-group textarea {
+    background: #111827;
+    border-color: #374151;
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .lecture-form-file-prefix {
+    background: #374151;
+    border-color: #4B5563;
+    color: #A8B2BF;
+}

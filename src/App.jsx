@@ -37,6 +37,8 @@ const AiTipsLearning = lazy(() => import('./pages/ai-tips/AiTipsLearning'))
 const Playground = lazy(() => import('./pages/Playground'))
 
 const LecturesHome = lazy(() => import('./pages/lectures/LecturesHome'))
+const LectureWriteForm = lazy(() => import('./pages/lectures/LectureWrite'))
+const LectureDetailView = lazy(() => import('./pages/lectures/LectureDetail'))
 const LectureWhatIsPrompt = lazy(() => import('./pages/lectures/LectureWhatIsPrompt'))
 const LectureAiModels = lazy(() => import('./pages/lectures/LectureAiModels'))
 const LectureStructure = lazy(() => import('./pages/lectures/LectureStructure'))
@@ -109,6 +111,9 @@ export default function App() {
               <Route path="/playground" element={<Playground />} />
 
               <Route path="/lectures" element={<LecturesHome />} />
+              <Route path="/lectures/write" element={<ProtectedRoute><LectureWriteForm /></ProtectedRoute>} />
+              <Route path="/lectures/edit/:id" element={<ProtectedRoute><LectureWriteForm /></ProtectedRoute>} />
+              <Route path="/lectures/view/:id" element={<LectureDetailView />} />
               <Route path="/lectures/what-is-prompt" element={<LectureWhatIsPrompt />} />
               <Route path="/lectures/ai-models" element={<LectureAiModels />} />
               <Route path="/lectures/structure" element={<LectureStructure />} />

@@ -61,18 +61,8 @@ const site = {
     {
       label: '강의안',
       children: [
-        { label: '강의안 홈', path: '/lectures' },
-        { label: '프롬프트 엔지니어링이란?', path: '/lectures/what-is-prompt' },
-        { label: 'AI 모델 이해하기', path: '/lectures/ai-models' },
-        { label: '프롬프트 구조와 패턴', path: '/lectures/structure' },
-        { label: 'Few-shot 기법', path: '/lectures/few-shot' },
-        { label: 'Chain-of-Thought', path: '/lectures/chain-of-thought' },
-        { label: '역할 부여와 시스템 프롬프트', path: '/lectures/role-system' },
-        { label: '실전: 글쓰기', path: '/lectures/writing' },
-        { label: '실전: 코딩', path: '/lectures/coding' },
-        { label: '실전: 데이터 분석', path: '/lectures/analysis' },
-        { label: '실전: 번역', path: '/lectures/translation' },
-        { label: '실전: 비즈니스', path: '/lectures/business' }
+        { label: '강의안 목록', path: '/lectures' },
+        { label: '강의안 등록', path: '/lectures/write' }
       ]
     },
     {
