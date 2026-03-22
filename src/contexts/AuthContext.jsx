@@ -29,7 +29,10 @@ export function AuthProvider({ children }) {
     return () => subscription.unsubscribe()
   }, [])
 
+  const noSupabaseError = { error: { message: 'Supabase가 설정되지 않았습니다. 관리자에게 문의하세요.' } }
+
   const signUp = async (email, password, displayName) => {
+    if (!supabase) return noSupabaseError
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -41,6 +44,7 @@ export function AuthProvider({ children }) {
   }
 
   const signIn = async (email, password) => {
+    if (!supabase) return noSupabaseError
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password
@@ -49,6 +53,7 @@ export function AuthProvider({ children }) {
   }
 
   const signInWithGithub = async () => {
+    if (!supabase) return noSupabaseError
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github'
     })
@@ -56,6 +61,7 @@ export function AuthProvider({ children }) {
   }
 
   const signInWithGoogle = async () => {
+    if (!supabase) return noSupabaseError
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google'
     })
@@ -63,6 +69,7 @@ export function AuthProvider({ children }) {
   }
 
   const signOut = async () => {
+    if (!supabase) return noSupabaseError
     const { error } = await supabase.auth.signOut()
     return { error }
   }

@@ -2,7 +2,7 @@ const site = {
   name: 'AI Prompt',
   nameKo: '프롬프트 엔지니어링 학습',
   description: 'ChatGPT, Claude 등 AI 모델에서 원하는 결과를 이끌어내는 프롬프트 작성 기법을 학습합니다.',
-  url: 'https://aebonlee.github.io/ai-prompt',
+  url: 'https://ai-prompt.dreamitbiz.com',
   brand: {
     parts: [
       { text: 'AI', className: 'brand-ai' },

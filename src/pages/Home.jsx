@@ -12,6 +12,7 @@ const curriculum = [
   { step: 'STEP 08', icon: '💻', title: '실전: 코딩', desc: '코드 생성, 디버깅, 리팩토링에 프롬프트를 활용합니다.', path: '/practice/coding', topics: '코드생성 · 디버깅 · 리팩토링' },
   { step: 'STEP 09', icon: '📊', title: '실전: 데이터 분석', desc: '데이터 분석, 시각화, 인사이트 도출에 AI를 활용합니다.', path: '/practice/analysis', topics: '분석 · 시각화 · 인사이트' },
   { step: 'STEP 10', icon: '🌐', title: '실전: 번역', desc: '자연스러운 번역과 로컬라이제이션에 AI를 활용합니다.', path: '/practice/translation', topics: '번역 · 현지화 · 다국어' },
+  { step: 'STEP 11', icon: '💼', title: '실전: 비즈니스', desc: '회의록, 제안서, 시장 분석 등 비즈니스에 AI를 활용합니다.', path: '/practice/business', topics: '회의록 · 제안서 · 전략' },
 ]
 
 const features = [
