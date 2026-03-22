@@ -269,3 +269,109 @@
 [data-theme="dark"][data-color="orange"] {
     --primary-blue-bg: rgba(234, 88, 12, 0.15);
 }
+
+/* Community dark */
+[data-theme="dark"] .community-category-btn {
+    background: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .community-category-btn:hover,
+[data-theme="dark"] .community-category-btn.active {
+    background: var(--primary-blue);
+    color: #fff;
+    border-color: var(--primary-blue);
+}
+
+[data-theme="dark"] .community-post-item {
+    border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .community-post-item:hover {
+    background: rgba(124, 58, 237, 0.05);
+}
+
+[data-theme="dark"] .community-post-title {
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .community-page-btn {
+    background: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .community-page-btn:hover,
+[data-theme="dark"] .community-page-btn.active {
+    background: var(--primary-blue);
+    color: #fff;
+    border-color: var(--primary-blue);
+}
+
+[data-theme="dark"] .community-form-group select,
+[data-theme="dark"] .community-form-group input,
+[data-theme="dark"] .community-form-group textarea {
+    background: #111827;
+    border-color: #374151;
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .community-cancel-btn {
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .community-cancel-btn:hover {
+    background: #374151;
+}
+
+[data-theme="dark"] .community-detail-header {
+    border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .community-detail-title {
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .community-detail-content {
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .community-comments {
+    border-top-color: #374151;
+}
+
+[data-theme="dark"] .community-comment {
+    border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .community-comment-body {
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .community-comment-form textarea {
+    background: #111827;
+    border-color: #374151;
+    color: #F9FAFB;
+}
+
+[data-theme="dark"] .community-detail-actions button {
+    background: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .community-error {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+}
+
+[data-theme="dark"] .community-back-btn {
+    color: #D1D5DB;
+}
+
+[data-theme="dark"] .community-back-btn:hover {
+    background: #1F2937;
+}

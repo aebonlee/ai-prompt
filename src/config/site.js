@@ -57,7 +57,49 @@ const site = {
         { label: 'AI 학습 활용', path: '/ai-tips/learning' }
       ]
     },
-    { label: '실습', path: '/playground' }
+    { label: '실습', path: '/playground' },
+    {
+      label: '강의안',
+      children: [
+        { label: '강의안 홈', path: '/lectures' },
+        { label: '프롬프트 엔지니어링이란?', path: '/lectures/what-is-prompt' },
+        { label: 'AI 모델 이해하기', path: '/lectures/ai-models' },
+        { label: '프롬프트 구조와 패턴', path: '/lectures/structure' },
+        { label: 'Few-shot 기법', path: '/lectures/few-shot' },
+        { label: 'Chain-of-Thought', path: '/lectures/chain-of-thought' },
+        { label: '역할 부여와 시스템 프롬프트', path: '/lectures/role-system' },
+        { label: '실전: 글쓰기', path: '/lectures/writing' },
+        { label: '실전: 코딩', path: '/lectures/coding' },
+        { label: '실전: 데이터 분석', path: '/lectures/analysis' },
+        { label: '실전: 번역', path: '/lectures/translation' },
+        { label: '실전: 비즈니스', path: '/lectures/business' }
+      ]
+    },
+    {
+      label: '실습워크북',
+      children: [
+        { label: '워크북 홈', path: '/workbook' },
+        { label: '프롬프트 엔지니어링이란?', path: '/workbook/what-is-prompt' },
+        { label: 'AI 모델 이해하기', path: '/workbook/ai-models' },
+        { label: '프롬프트 구조와 패턴', path: '/workbook/structure' },
+        { label: 'Few-shot 기법', path: '/workbook/few-shot' },
+        { label: 'Chain-of-Thought', path: '/workbook/chain-of-thought' },
+        { label: '역할 부여와 시스템 프롬프트', path: '/workbook/role-system' },
+        { label: '실전: 글쓰기', path: '/workbook/writing' },
+        { label: '실전: 코딩', path: '/workbook/coding' },
+        { label: '실전: 데이터 분석', path: '/workbook/analysis' },
+        { label: '실전: 번역', path: '/workbook/translation' },
+        { label: '실전: 비즈니스', path: '/workbook/business' }
+      ]
+    },
+    { label: '참고문서', path: '/references' },
+    {
+      label: '커뮤니티',
+      children: [
+        { label: '게시판', path: '/community' },
+        { label: '글쓰기', path: '/community/write' }
+      ]
+    }
   ],
   footerLinks: [
     { label: '프롬프트란?', path: '/intro/what-is-prompt' },

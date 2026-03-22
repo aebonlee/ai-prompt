@@ -35,6 +35,39 @@ const AiTipsWriting = lazy(() => import('./pages/ai-tips/AiTipsWriting'))
 const AiTipsLearning = lazy(() => import('./pages/ai-tips/AiTipsLearning'))
 
 const Playground = lazy(() => import('./pages/Playground'))
+
+const LecturesHome = lazy(() => import('./pages/lectures/LecturesHome'))
+const LectureWhatIsPrompt = lazy(() => import('./pages/lectures/LectureWhatIsPrompt'))
+const LectureAiModels = lazy(() => import('./pages/lectures/LectureAiModels'))
+const LectureStructure = lazy(() => import('./pages/lectures/LectureStructure'))
+const LectureFewShot = lazy(() => import('./pages/lectures/LectureFewShot'))
+const LectureChainOfThought = lazy(() => import('./pages/lectures/LectureChainOfThought'))
+const LectureRoleSystem = lazy(() => import('./pages/lectures/LectureRoleSystem'))
+const LectureWriting = lazy(() => import('./pages/lectures/LectureWriting'))
+const LectureCoding = lazy(() => import('./pages/lectures/LectureCoding'))
+const LectureAnalysis = lazy(() => import('./pages/lectures/LectureAnalysis'))
+const LectureTranslation = lazy(() => import('./pages/lectures/LectureTranslation'))
+const LectureBusiness = lazy(() => import('./pages/lectures/LectureBusiness'))
+
+const WorkbookHome = lazy(() => import('./pages/workbook/WorkbookHome'))
+const WorkbookWhatIsPrompt = lazy(() => import('./pages/workbook/WorkbookWhatIsPrompt'))
+const WorkbookAiModels = lazy(() => import('./pages/workbook/WorkbookAiModels'))
+const WorkbookStructure = lazy(() => import('./pages/workbook/WorkbookStructure'))
+const WorkbookFewShot = lazy(() => import('./pages/workbook/WorkbookFewShot'))
+const WorkbookChainOfThought = lazy(() => import('./pages/workbook/WorkbookChainOfThought'))
+const WorkbookRoleSystem = lazy(() => import('./pages/workbook/WorkbookRoleSystem'))
+const WorkbookWriting = lazy(() => import('./pages/workbook/WorkbookWriting'))
+const WorkbookCoding = lazy(() => import('./pages/workbook/WorkbookCoding'))
+const WorkbookAnalysis = lazy(() => import('./pages/workbook/WorkbookAnalysis'))
+const WorkbookTranslation = lazy(() => import('./pages/workbook/WorkbookTranslation'))
+const WorkbookBusiness = lazy(() => import('./pages/workbook/WorkbookBusiness'))
+
+const References = lazy(() => import('./pages/References'))
+
+const CommunityList = lazy(() => import('./pages/community/CommunityList'))
+const CommunityWrite = lazy(() => import('./pages/community/CommunityWrite'))
+const CommunityView = lazy(() => import('./pages/community/CommunityView'))
+
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -74,6 +107,39 @@ export default function App() {
               <Route path="/ai-tips/learning" element={<AiTipsLearning />} />
 
               <Route path="/playground" element={<Playground />} />
+
+              <Route path="/lectures" element={<LecturesHome />} />
+              <Route path="/lectures/what-is-prompt" element={<LectureWhatIsPrompt />} />
+              <Route path="/lectures/ai-models" element={<LectureAiModels />} />
+              <Route path="/lectures/structure" element={<LectureStructure />} />
+              <Route path="/lectures/few-shot" element={<LectureFewShot />} />
+              <Route path="/lectures/chain-of-thought" element={<LectureChainOfThought />} />
+              <Route path="/lectures/role-system" element={<LectureRoleSystem />} />
+              <Route path="/lectures/writing" element={<LectureWriting />} />
+              <Route path="/lectures/coding" element={<LectureCoding />} />
+              <Route path="/lectures/analysis" element={<LectureAnalysis />} />
+              <Route path="/lectures/translation" element={<LectureTranslation />} />
+              <Route path="/lectures/business" element={<LectureBusiness />} />
+
+              <Route path="/workbook" element={<WorkbookHome />} />
+              <Route path="/workbook/what-is-prompt" element={<WorkbookWhatIsPrompt />} />
+              <Route path="/workbook/ai-models" element={<WorkbookAiModels />} />
+              <Route path="/workbook/structure" element={<WorkbookStructure />} />
+              <Route path="/workbook/few-shot" element={<WorkbookFewShot />} />
+              <Route path="/workbook/chain-of-thought" element={<WorkbookChainOfThought />} />
+              <Route path="/workbook/role-system" element={<WorkbookRoleSystem />} />
+              <Route path="/workbook/writing" element={<WorkbookWriting />} />
+              <Route path="/workbook/coding" element={<WorkbookCoding />} />
+              <Route path="/workbook/analysis" element={<WorkbookAnalysis />} />
+              <Route path="/workbook/translation" element={<WorkbookTranslation />} />
+              <Route path="/workbook/business" element={<WorkbookBusiness />} />
+
+              <Route path="/references" element={<References />} />
+
+              <Route path="/community" element={<CommunityList />} />
+              <Route path="/community/write" element={<ProtectedRoute><CommunityWrite /></ProtectedRoute>} />
+              <Route path="/community/:id" element={<CommunityView />} />
+
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
