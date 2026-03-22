@@ -1,4 +1,4 @@
-import{r as p,j as n}from"./index-CR2zgN_K.js";import{S as h}from"./SEOHead-BSjcc5A8.js";const d=[{label:"Few-shot 예시",prompt:`다음 예시를 참고하여 답변해주세요.
+import{r as p,j as n}from"./index-CAD6yzNr.js";import{S as h}from"./SEOHead-y4leSBj9.js";const d=[{label:"Few-shot 예시",prompt:`다음 예시를 참고하여 답변해주세요.
 
 질문: 사과는 무슨 색인가요?
 답변: 빨간색입니다.
