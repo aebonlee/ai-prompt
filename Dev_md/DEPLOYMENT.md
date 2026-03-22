@@ -18,16 +18,10 @@ npm run build
 npm run preview
 ```
 
-## GitHub Pages 배포
+## GitHub Pages 배포 (gh-pages 브랜치 방식)
 
-### 수동 배포
-```bash
-npm run build
-# dist 폴더를 gh-pages 브랜치로 배포
-```
-
-### GitHub Actions 자동 배포
-`.github/workflows/deploy.yml` 파일로 자동 배포 설정:
+### 자동 배포 (GitHub Actions)
+`main` 브랜치에 push하면 `.github/workflows/deploy.yml`이 자동 실행됩니다.
 
 ```yaml
 name: Deploy to GitHub Pages
@@ -37,52 +31,60 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
+      - run: npm ci
+      - run: npm run build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: peaceiris/actions-gh-pages@v4
         with:
-          path: './dist'
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
 ```
 
+### 수동 배포
+```bash
+npm run build
+npm run deploy
+# gh-pages 패키지가 dist 폴더를 gh-pages 브랜치에 푸시
+```
+
+### GitHub Pages 설정
+1. Repository > Settings > Pages
+2. Source: **Deploy from a branch**
+3. Branch: **gh-pages** / **/ (root)**
+4. Save
+
+## 커스텀 도메인
+- 도메인: `ai-prompt.dreamitbiz.com`
+- CNAME 파일: `public/CNAME` (빌드 시 dist에 자동 복사)
+- GitHub Pages Settings > Custom domain에서 설정 확인
+
 ## GitHub Secrets 설정
-Repository Settings > Secrets and variables > Actions에서:
+Repository > Settings > Secrets and variables > Actions:
 - `VITE_SUPABASE_URL`: Supabase 프로젝트 URL
 - `VITE_SUPABASE_ANON_KEY`: Supabase anon key
 
+> Secrets 미설정 시에도 사이트는 정상 표시됩니다 (인증 기능만 비활성화).
+
 ## Supabase 설정
 1. Supabase Dashboard > Authentication > URL Configuration
-2. Site URL: `https://aebonlee.github.io/ai-prompt`
-3. Redirect URLs: `https://aebonlee.github.io/ai-prompt/**`
+2. Site URL: `https://ai-prompt.dreamitbiz.com`
+3. Redirect URLs:
+   - `https://ai-prompt.dreamitbiz.com`
+   - `https://ai-prompt.dreamitbiz.com/**`
+   - `http://localhost:5173` (개발용)
 4. OAuth 제공자 (GitHub, Google) 설정 시 callback URL 추가
 
 ## OG 이미지

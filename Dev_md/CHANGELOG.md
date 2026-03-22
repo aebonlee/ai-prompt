@@ -5,6 +5,21 @@
 
 ---
 
+## [1.0.1] - 2026-03-23
+
+### Fixed
+- OG 메타 태그 URL을 커스텀 도메인(`ai-prompt.dreamitbiz.com`)으로 수정
+- Home 커리큘럼에 누락된 STEP 11 비즈니스 항목 추가
+- Supabase 미설정 시 빈 페이지 크래시 수정 (null guard)
+- AuthContext 모든 인증 함수에 supabase null 안전 처리 추가
+
+### Changed
+- GitHub Pages 배포를 GitHub Actions → gh-pages 브랜치 방식으로 변경
+- peaceiris/actions-gh-pages@v4 도입
+- `npm run deploy` 스크립트 추가 (로컬 수동 배포용)
+
+---
+
 ## [1.0.0] - 2026-03-23
 
 ### Added
@@ -20,8 +35,8 @@
 - SEOHead 컴포넌트 (동적 OG/메타 태그)
 - Open Graph 메타 태그 (카카오 공유 지원)
 - 커스텀 도메인 설정: ai-prompt.dreamitbiz.com
-- GitHub Actions CI/CD 자동 배포
-- 프로젝트 문서: PROJECT_PLAN, ARCHITECTURE, DEPLOYMENT, DESIGN_SYSTEM, CURRICULUM_GUIDE, DEVLOG
+- GitHub Actions CI/CD 자동 배포 (gh-pages 브랜치)
+- 프로젝트 문서 8개 (Dev_md 폴더)
 
 ### Fixed
 - vite.config.js ESM 환경에서 `require('fs')` → `import fs from 'node:fs'` 수정
