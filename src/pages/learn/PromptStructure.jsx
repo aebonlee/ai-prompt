@@ -8,19 +8,19 @@ export default function PromptStructure() {
       <section className="page-header"><div className="container"><h1>효과적인 프롬프트 구조와 패턴</h1><p>체계적인 프롬프트 설계를 위한 프레임워크를 배웁니다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">RTF 패턴: Role - Task - Format</h2>
+        <h2>RTF 패턴: Role - Task - Format</h2>
         <p>가장 기본적이고 효과적인 프롬프트 구조입니다. 역할(Role), 작업(Task), 형식(Format) 세 가지 요소로 구성됩니다.</p>
 
-        <div className="code-block" data-aos="fade-up">
+        <div className="code-block">
           <div className="code-header">RTF 패턴 예시</div>
           <pre><code>{`[Role] 당신은 10년 경력의 UX 디자이너입니다.
 [Task] 모바일 쇼핑 앱의 결제 플로우를 개선해주세요.
 [Format] 현재 문제점 3가지와 각각의 개선안을 표로 정리해주세요.`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">CRISPE 프레임워크</h2>
+        <h2>CRISPE 프레임워크</h2>
         <p>보다 정교한 프롬프트 설계를 위한 5요소 프레임워크입니다.</p>
-        <div style={{overflowX:'auto'}} data-aos="fade-up">
+        <div style={{overflowX:'auto'}}>
           <table className="lesson-table">
             <thead><tr><th>요소</th><th>설명</th><th>예시</th></tr></thead>
             <tbody>
@@ -34,7 +34,7 @@ export default function PromptStructure() {
           </table>
         </div>
 
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">CRISPE 적용 예시</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -59,16 +59,16 @@ CTA 버튼:
           </div>
         </div>
 
-        <h2 data-aos="fade-up">핵심 패턴 모음</h2>
+        <h2>핵심 패턴 모음</h2>
 
         <h3>1. 단계별 지시 패턴</h3>
-        <div className="comparison-grid" data-aos="fade-up">
+        <div className="comparison-grid">
           <div className="comparison-card bad"><h4>나쁜 예</h4><p>"이 글을 개선해줘"</p></div>
           <div className="comparison-card good"><h4>좋은 예</h4><p>"이 글을 다음 단계로 개선해줘: 1) 문법 오류 수정 2) 문장 간결하게 3) 핵심 메시지 강화 4) 결론 추가"</p></div>
         </div>
 
         <h3>2. 구분자 패턴</h3>
-        <div className="code-block" data-aos="fade-up">
+        <div className="code-block">
           <div className="code-header">구분자로 데이터 분리</div>
           <pre><code>{`다음 두 텍스트를 비교 분석해주세요.
 
@@ -82,7 +82,7 @@ CTA 버튼:
         </div>
 
         <h3>3. 네거티브 프롬프트 패턴</h3>
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">하지 말아야 할 것을 명시</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -101,7 +101,7 @@ CTA 버튼:
         </div>
 
         <h3>4. 출력 형식 제어 패턴</h3>
-        <div className="code-block" data-aos="fade-up">
+        <div className="code-block">
           <div className="code-header">JSON 출력 지정</div>
           <pre><code>{`다음 텍스트에서 정보를 추출하여 JSON으로 반환해주세요.
 
@@ -117,7 +117,7 @@ CTA 버튼:
 }`}</code></pre>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: CRISPE로 프롬프트 설계하기</h3>
           <p>CRISPE 프레임워크를 사용하여 다음 상황에 맞는 프롬프트를 작성해보세요:</p>
           <ul>
@@ -126,7 +126,7 @@ CTA 버튼:
           </ul>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>핵심 요약</h3>
           <ul>
             <li>RTF (Role-Task-Format)는 가장 기본적이고 효과적인 구조</li>

@@ -543,8 +543,3 @@
   line-height: 1.6;
 }
 
-/* Hero AOS override */
-.hero [data-aos] {
-  opacity: 1 !important;
-  transform: none !important;
-}

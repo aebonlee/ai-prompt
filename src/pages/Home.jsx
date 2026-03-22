@@ -82,7 +82,7 @@ export default function Home() {
           </div>
           <div className="curriculum-grid">
             {curriculum.map((item, i) => (
-              <Link to={item.path} className="curriculum-card" key={i} data-aos="fade-up">
+              <Link to={item.path} className="curriculum-card" key={i}>
                 <span className="curriculum-step">{item.step}</span>
                 <div className="curriculum-icon">{item.icon}</div>
                 <h3 className="curriculum-card-title">{item.title}</h3>
@@ -103,7 +103,7 @@ export default function Home() {
           </div>
           <div className="feature-grid">
             {features.map((f, i) => (
-              <div className="feature-card" key={i} data-aos="fade-up">
+              <div className="feature-card" key={i}>
                 <div className="feature-icon">{f.icon}</div>
                 <h3 className="feature-title">{f.title}</h3>
                 <p className="feature-desc">{f.desc}</p>
@@ -122,7 +122,7 @@ export default function Home() {
           </div>
           <div className="target-grid">
             {targets.map((t, i) => (
-              <div className="target-card" key={i} data-aos="fade-up">
+              <div className="target-card" key={i}>
                 <div className="target-icon">{t.icon}</div>
                 <h3 className="target-title">{t.title}</h3>
                 <p className="target-desc">{t.desc}</p>

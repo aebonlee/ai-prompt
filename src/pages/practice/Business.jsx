@@ -8,8 +8,8 @@ export default function Business() {
       <section className="page-header"><div className="container"><h1>실전 활용: 비즈니스</h1><p>회의록, 제안서, 시장 분석 등 비즈니스 업무에 AI를 활용합니다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">1. 회의록 정리</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>1. 회의록 정리</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">회의록 작성</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -47,8 +47,8 @@ export default function Business() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">2. 제안서 초안</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>2. 제안서 초안</h2>
+        <div className="code-block">
           <div className="code-header">제안서 프롬프트</div>
           <pre><code>{`B2B SaaS 제품 도입 제안서 초안을 작성해주세요.
 
@@ -67,8 +67,8 @@ export default function Business() {
 분량: A4 2페이지 분량`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">3. 시장 분석</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>3. 시장 분석</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">SWOT 분석</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -83,8 +83,8 @@ SWOT 표 + 전략 매트릭스(SO/WO/ST/WT) + 핵심 추천 전략 3가지`}</di
           </div>
         </div>
 
-        <h2 data-aos="fade-up">4. 고객 커뮤니케이션</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>4. 고객 커뮤니케이션</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">고객 불만 대응</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -106,8 +106,8 @@ SWOT 표 + 전략 매트릭스(SO/WO/ST/WT) + 핵심 추천 전략 3가지`}</di
           </div>
         </div>
 
-        <h2 data-aos="fade-up">5. 전략 기획</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>5. 전략 기획</h2>
+        <div className="code-block">
           <div className="code-header">OKR 설계 프롬프트</div>
           <pre><code>{`마케팅팀의 Q2 OKR을 설계해주세요.
 
@@ -123,7 +123,7 @@ SWOT 표 + 전략 매트릭스(SO/WO/ST/WT) + 핵심 추천 전략 3가지`}</di
 - 이니셔티브(Initiative) 각 2개씩`}</code></pre>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>비즈니스 프롬프트 핵심 팁</h3>
           <ul>
             <li><strong>숫자와 데이터 제공</strong>: 구체적 수치가 있어야 AI가 정확한 분석 가능</li>
@@ -133,7 +133,7 @@ SWOT 표 + 전략 매트릭스(SO/WO/ST/WT) + 핵심 추천 전략 3가지`}</di
           </ul>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: 비즈니스 문서 작성</h3>
           <p>자신의 업무 상황에 맞는 비즈니스 문서를 AI로 작성해보세요: 회의록, 제안서, 분석 보고서 중 하나를 선택하세요.</p>
         </div>

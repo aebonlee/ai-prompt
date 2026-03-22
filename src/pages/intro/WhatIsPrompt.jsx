@@ -8,11 +8,11 @@ export default function WhatIsPrompt() {
       <section className="page-header"><div className="container"><h1>프롬프트 엔지니어링이란?</h1><p>AI에게 원하는 결과를 이끌어내는 질문의 기술을 배워봅시다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">프롬프트(Prompt)란 무엇인가?</h2>
+        <h2>프롬프트(Prompt)란 무엇인가?</h2>
         <p><strong>프롬프트(Prompt)</strong>란 AI 모델에게 전달하는 입력 텍스트를 의미합니다. 여러분이 ChatGPT나 Claude에게 "오늘 날씨 어때?"라고 질문하면, 이 질문 자체가 바로 프롬프트입니다.</p>
         <p><strong>프롬프트 엔지니어링(Prompt Engineering)</strong>은 AI 모델로부터 원하는 결과를 정확하고 효율적으로 얻기 위해 프롬프트를 체계적으로 설계하고 최적화하는 기술입니다.</p>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>핵심 개념</h3>
           <ul>
             <li><strong>프롬프트</strong>: AI 모델에 입력하는 텍스트 (질문, 지시, 맥락 등)</li>
@@ -21,10 +21,10 @@ export default function WhatIsPrompt() {
           </ul>
         </div>
 
-        <h2 data-aos="fade-up">왜 프롬프트 엔지니어링이 중요한가?</h2>
+        <h2>왜 프롬프트 엔지니어링이 중요한가?</h2>
         <p>같은 AI 모델을 사용하더라도 프롬프트를 어떻게 작성하느냐에 따라 결과의 품질이 극적으로 달라집니다.</p>
 
-        <div className="comparison-grid" data-aos="fade-up">
+        <div className="comparison-grid">
           <div className="comparison-card bad">
             <h4>모호한 프롬프트</h4>
             <p>"마케팅 좀 도와줘"</p>
@@ -37,12 +37,12 @@ export default function WhatIsPrompt() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">LLM은 프롬프트를 어떻게 처리하는가?</h2>
+        <h2>LLM은 프롬프트를 어떻게 처리하는가?</h2>
 
         <h3>1단계: 토큰화 (Tokenization)</h3>
         <p>AI 모델은 텍스트를 <strong>토큰(Token)</strong>이라는 작은 단위로 분할합니다. 한국어는 영어보다 같은 의미를 전달하는 데 더 많은 토큰을 소비합니다.</p>
 
-        <div className="code-block" data-aos="fade-up">
+        <div className="code-block">
           <div className="code-header">토큰화 예시</div>
           <pre><code>{`입력: "프롬프트 엔지니어링을 배웁니다"
 토큰화 결과 (예시): ["프롬", "프트", " 엔지", "니어", "링을", " 배", "웁니다"]
@@ -55,8 +55,8 @@ export default function WhatIsPrompt() {
         <h3>3단계: 텍스트 생성 (Generation)</h3>
         <p>LLM은 <strong>다음에 올 가장 가능성 높은 토큰</strong>을 하나씩 예측하여 응답을 생성합니다. temperature가 높으면 더 창의적이지만 예측하기 어려운 답변이 나옵니다.</p>
 
-        <h2 data-aos="fade-up">프롬프트 vs 전통적 프로그래밍</h2>
-        <div style={{overflowX:'auto'}} data-aos="fade-up">
+        <h2>프롬프트 vs 전통적 프로그래밍</h2>
+        <div style={{overflowX:'auto'}}>
           <table className="lesson-table">
             <thead><tr><th>구분</th><th>전통적 프로그래밍</th><th>프롬프트 엔지니어링</th></tr></thead>
             <tbody>
@@ -69,8 +69,8 @@ export default function WhatIsPrompt() {
           </table>
         </div>
 
-        <h2 data-aos="fade-up">좋은 프롬프트의 5가지 원칙</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>좋은 프롬프트의 5가지 원칙</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">핵심 원칙</div>
           <div className="prompt-example-body">
             <div className="prompt-label">1. 구체성 (Specificity)</div>
@@ -86,8 +86,8 @@ export default function WhatIsPrompt() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">실전 프롬프트 예시</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>실전 프롬프트 예시</h2>
+        <div className="code-block">
           <div className="code-header">제품 리뷰 분석 프롬프트</div>
           <pre><code>{`당신은 전자제품 리뷰 분석 전문가입니다.
 
@@ -104,7 +104,7 @@ export default function WhatIsPrompt() {
 - 리뷰에 없는 내용을 추가하지 마세요`}</code></pre>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습 1: 나쁜 프롬프트 개선하기</h3>
           <p>"여행 계획 세워줘"를 5가지 원칙을 적용하여 개선해보세요.</p>
           <ul>
@@ -114,12 +114,12 @@ export default function WhatIsPrompt() {
           </ul>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습 2: 직접 비교해보기</h3>
           <p>작성한 프롬프트를 ChatGPT나 Claude에 입력하고 "여행 계획 세워줘"의 결과와 비교해보세요. 프롬프트 엔지니어링의 효과를 체감할 수 있습니다.</p>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>이번 챕터 핵심 요약</h3>
           <ul>
             <li>프롬프트는 AI에게 전달하는 입력 텍스트, 프롬프트 엔지니어링은 이를 설계하는 기술</li>

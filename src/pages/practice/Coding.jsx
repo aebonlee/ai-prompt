@@ -8,8 +8,8 @@ export default function Coding() {
       <section className="page-header"><div className="container"><h1>실전 활용: 코딩</h1><p>코드 생성, 디버깅, 리팩토링에 AI를 활용합니다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">1. 코드 생성</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>1. 코드 생성</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">함수 생성 프롬프트</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -50,8 +50,8 @@ def validate_password(password: str) -> tuple[bool, list[str]]:
           </div>
         </div>
 
-        <h2 data-aos="fade-up">2. 디버깅</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>2. 디버깅</h2>
+        <div className="code-block">
           <div className="code-header">디버깅 프롬프트</div>
           <pre><code>{`다음 JavaScript 코드가 예상대로 동작하지 않습니다.
 버그를 찾고 수정해주세요. 단계별로 분석하세요.
@@ -74,8 +74,8 @@ console.log(removeDuplicates([1, 2, 2, 2, 3]));
 // 실제: [1, 2, 2, 3]`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">3. 리팩토링</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>3. 리팩토링</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">코드 리팩토링</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -115,8 +115,8 @@ function calculateOrderTotal(customerType, unitPrice, quantity) {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">4. 테스트 코드 작성</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>4. 테스트 코드 작성</h2>
+        <div className="code-block">
           <div className="code-header">테스트 생성 프롬프트</div>
           <pre><code>{`위의 calculateOrderTotal 함수에 대한 Jest 테스트 코드를 작성해주세요.
 
@@ -127,8 +127,8 @@ function calculateOrderTotal(customerType, unitPrice, quantity) {
 - 엣지 케이스 (0, 음수)`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">5. API 설계</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>5. API 설계</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">REST API 설계</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -140,8 +140,8 @@ function calculateOrderTotal(customerType, unitPrice, quantity) {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">6. 코드 설명</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>6. 코드 설명</h2>
+        <div className="code-block">
           <div className="code-header">코드 해석 프롬프트</div>
           <pre><code>{`다음 정규식이 무엇을 검증하는지 한국어로 상세히 설명해주세요.
 각 부분을 분리하여 역할을 설명하세요.
@@ -149,7 +149,7 @@ function calculateOrderTotal(customerType, unitPrice, quantity) {
 /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/`}</code></pre>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>코딩 프롬프트 팁</h3>
           <ul>
             <li><strong>기술 스택 명시</strong>: 언어, 프레임워크, 버전을 구체적으로</li>
@@ -159,7 +159,7 @@ function calculateOrderTotal(customerType, unitPrice, quantity) {
           </ul>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: 자신의 코드에 AI 활용하기</h3>
           <p>최근 작성한 코드를 AI에게 리뷰 또는 리팩토링 요청해보세요. 개선 전후를 비교하고 어떤 점이 나아졌는지 분석해보세요.</p>
         </div>

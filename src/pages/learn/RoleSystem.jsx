@@ -8,13 +8,13 @@ export default function RoleSystem() {
       <section className="page-header"><div className="container"><h1>역할 부여와 시스템 프롬프트 설계</h1><p>AI의 전문성을 극대화하는 페르소나 설계 기법</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">왜 역할 부여가 효과적인가?</h2>
+        <h2>왜 역할 부여가 효과적인가?</h2>
         <p>AI에게 특정 역할을 부여하면 해당 분야의 전문 지식, 어휘, 사고방식으로 응답합니다. "번역해줘"보다 "당신은 10년 경력의 전문 번역가입니다"가 훨씬 정확한 번역을 이끌어냅니다.</p>
 
-        <h2 data-aos="fade-up">역할별 프롬프트 예시</h2>
+        <h2>역할별 프롬프트 예시</h2>
 
         <h3>1. 교육자 역할</h3>
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">교육자 페르소나</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -31,7 +31,7 @@ export default function RoleSystem() {
         </div>
 
         <h3>2. 개발자 역할</h3>
-        <div className="code-block" data-aos="fade-up">
+        <div className="code-block">
           <div className="code-header">시니어 개발자 역할</div>
           <pre><code>{`당신은 대규모 트래픽을 처리한 경험이 있는 시니어 백엔드 개발자입니다.
 
@@ -47,7 +47,7 @@ export default function RoleSystem() {
         </div>
 
         <h3>3. 번역가 역할</h3>
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">전문 번역가</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -66,7 +66,7 @@ export default function RoleSystem() {
         </div>
 
         <h3>4. 데이터 분석가 역할</h3>
-        <div className="code-block" data-aos="fade-up">
+        <div className="code-block">
           <div className="code-header">분석가 페르소나</div>
           <pre><code>{`당신은 마케팅 데이터 분석 전문가입니다.
 
@@ -82,7 +82,7 @@ export default function RoleSystem() {
         </div>
 
         <h3>5. 크리에이티브 라이터 역할</h3>
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">카피라이터</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -106,8 +106,8 @@ export default function RoleSystem() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">시스템 프롬프트 설계 템플릿</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>시스템 프롬프트 설계 템플릿</h2>
+        <div className="code-block">
           <div className="code-header">시스템 프롬프트 템플릿</div>
           <pre><code>{`## 역할 정의
 당신은 [역할/직업]입니다.
@@ -133,7 +133,7 @@ export default function RoleSystem() {
 - [제약 2]`}</code></pre>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>시스템 프롬프트 vs 사용자 프롬프트</h3>
           <ul>
             <li><strong>시스템 프롬프트</strong>: AI의 기본 행동 방식, 역할, 규칙을 설정 (API의 system 필드)</li>
@@ -143,7 +143,7 @@ export default function RoleSystem() {
           </ul>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: 나만의 AI 어시스턴트 설계</h3>
           <p>자신의 업무에 맞는 AI 어시스턴트를 위한 시스템 프롬프트를 설계해보세요:</p>
           <ul>

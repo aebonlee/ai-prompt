@@ -8,10 +8,10 @@ export default function ChainOfThought() {
       <section className="page-header"><div className="container"><h1>Chain-of-Thought 프롬프팅</h1><p>AI의 추론 능력을 극대화하는 단계별 사고 유도 기법</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">Chain-of-Thought(CoT)란?</h2>
+        <h2>Chain-of-Thought(CoT)란?</h2>
         <p>Chain-of-Thought는 AI에게 최종 답만 요구하는 대신, <strong>풀이 과정을 단계별로 보여달라고 요청</strong>하는 기법입니다. 복잡한 추론, 수학 문제, 논리적 판단에서 정확도가 크게 향상됩니다.</p>
 
-        <div className="comparison-grid" data-aos="fade-up">
+        <div className="comparison-grid">
           <div className="comparison-card bad">
             <h4>일반 프롬프트</h4>
             <p>"가게에 사과 23개가 있었다. 8개를 팔고 12개를 새로 입고했다. 남은 사과는?"</p>
@@ -24,10 +24,10 @@ export default function ChainOfThought() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">Zero-shot CoT: 마법의 한 마디</h2>
+        <h2>Zero-shot CoT: 마법의 한 마디</h2>
         <p>"<strong>단계별로 생각해보세요(Let's think step by step)</strong>"라는 한 문장만 추가해도 추론 정확도가 크게 올라갑니다.</p>
 
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">Zero-shot CoT 예시: 수학 문제</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -46,8 +46,8 @@ export default function ChainOfThought() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">CoT 실전 예시: 논리 문제</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>CoT 실전 예시: 논리 문제</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">논리적 추론</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -70,8 +70,8 @@ export default function ChainOfThought() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">CoT 실전 예시: 코드 디버깅</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>CoT 실전 예시: 코드 디버깅</h2>
+        <div className="code-block">
           <div className="code-header">디버깅에 CoT 적용</div>
           <pre><code>{`다음 코드의 버그를 찾아주세요. 단계별로 코드를 실행하며 분석하세요.
 
@@ -86,8 +86,8 @@ function calculateAverage(numbers) {
 // 테스트: calculateAverage([10, 20, 30]) → 예상: 20, 실제: NaN`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">CoT 실전 예시: 비즈니스 의사결정</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>CoT 실전 예시: 비즈니스 의사결정</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">비즈니스 분석</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -113,7 +113,7 @@ function calculateAverage(numbers) {
           </div>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>CoT 활용 팁</h3>
           <ul>
             <li><strong>간단한 질문에는 불필요</strong>: "수도는?" 같은 간단한 질문에는 CoT가 오히려 비효율적</li>
@@ -123,7 +123,7 @@ function calculateAverage(numbers) {
           </ul>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: CoT 적용하기</h3>
           <p>다음 문제에 CoT를 적용한 프롬프트를 작성해보세요:</p>
           <p><strong>문제:</strong> "신규 서비스의 가격을 책정해야 합니다. 원가 3만원, 목표 마진율 40%, 경쟁사 가격 5만원~7만원, 타겟 고객은 가격 민감한 20대입니다."</p>

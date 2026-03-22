@@ -8,8 +8,8 @@ export default function Analysis() {
       <section className="page-header"><div className="container"><h1>실전 활용: 데이터 분석</h1><p>데이터 해석, 시각화 제안, 인사이트 도출에 AI를 활용합니다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">1. 데이터 해석</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>1. 데이터 해석</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">매출 데이터 분석</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -35,8 +35,8 @@ export default function Analysis() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">2. 설문 결과 분석</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>2. 설문 결과 분석</h2>
+        <div className="code-block">
           <div className="code-header">설문 분석 프롬프트</div>
           <pre><code>{`다음 고객 만족도 설문 결과를 분석해주세요.
 
@@ -55,8 +55,8 @@ export default function Analysis() {
 분석 + 개선 우선순위 + 액션 플랜을 제안해주세요.`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">3. 시각화 제안</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>3. 시각화 제안</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">차트 추천</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -80,8 +80,8 @@ export default function Analysis() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">4. 엑셀 수식 생성</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>4. 엑셀 수식 생성</h2>
+        <div className="code-block">
           <div className="code-header">엑셀 수식 프롬프트</div>
           <pre><code>{`다음 조건에 맞는 엑셀 수식을 작성해주세요.
 
@@ -94,8 +94,8 @@ export default function Analysis() {
 4. 달성률 상위 3개 부서 추출`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">5. 인사이트 도출</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>5. 인사이트 도출</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">웹 분석 인사이트</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -112,7 +112,7 @@ Why-So What-Now What 프레임워크로 분석해주세요.`}</div>
           </div>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: 실제 데이터 분석하기</h3>
           <p>자신의 업무 데이터(또는 가상 데이터)를 활용하여 AI에게 분석을 요청해보세요. 분석 프레임워크를 지정하면 더 체계적인 결과를 얻을 수 있습니다.</p>
         </div>

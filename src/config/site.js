@@ -44,6 +44,19 @@ const site = {
         { label: '비즈니스', path: '/practice/business' }
       ]
     },
+    {
+      label: 'AI활용 Tip!',
+      children: [
+        { label: 'ChatGPT', path: '/ai-tips/chatgpt' },
+        { label: 'Claude', path: '/ai-tips/claude' },
+        { label: 'Gemini', path: '/ai-tips/gemini' },
+        { label: 'Copilot', path: '/ai-tips/copilot' },
+        { label: '프롬프트 작성법', path: '/ai-tips/prompt' },
+        { label: 'AI 코딩 활용', path: '/ai-tips/coding' },
+        { label: 'AI 문서 작성', path: '/ai-tips/writing' },
+        { label: 'AI 학습 활용', path: '/ai-tips/learning' }
+      ]
+    },
     { label: '실습', path: '/playground' }
   ],
   footerLinks: [

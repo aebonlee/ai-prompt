@@ -8,8 +8,8 @@ export default function FewShot() {
       <section className="page-header"><div className="container"><h1>Few-shot Learning 기법</h1><p>예시의 힘으로 AI의 응답 품질을 극대화하는 방법을 배웁니다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">Zero-shot vs One-shot vs Few-shot</h2>
-        <div style={{overflowX:'auto'}} data-aos="fade-up">
+        <h2>Zero-shot vs One-shot vs Few-shot</h2>
+        <div style={{overflowX:'auto'}}>
           <table className="lesson-table">
             <thead><tr><th>기법</th><th>예시 수</th><th>설명</th><th>적합한 상황</th></tr></thead>
             <tbody>
@@ -20,8 +20,8 @@ export default function FewShot() {
           </table>
         </div>
 
-        <h2 data-aos="fade-up">실전 예시 1: 감정 분석</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>실전 예시 1: 감정 분석</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">Few-shot 감정 분석</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -38,8 +38,8 @@ export default function FewShot() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">실전 예시 2: 이메일 분류</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>실전 예시 2: 이메일 분류</h2>
+        <div className="code-block">
           <div className="code-header">Few-shot 이메일 분류</div>
           <pre><code>{`이메일을 카테고리로 분류해주세요.
 
@@ -52,8 +52,8 @@ export default function FewShot() {
 → 긴급`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">실전 예시 3: 형식 변환</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>실전 예시 3: 형식 변환</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">자연어 → SQL 변환</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -69,8 +69,8 @@ export default function FewShot() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">실전 예시 4: 톤 변환</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>실전 예시 4: 톤 변환</h2>
+        <div className="code-block">
           <div className="code-header">비격식체 → 격식체 변환</div>
           <pre><code>{`비격식 문장을 비즈니스 격식체로 변환해주세요.
 
@@ -82,8 +82,8 @@ export default function FewShot() {
 → "요청드린 자료를 아직 수령하지 못하였습니다. 조속한 전달을 부탁드립니다."`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">실전 예시 5: 코드 패턴 학습</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>실전 예시 5: 코드 패턴 학습</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">React 컴포넌트 패턴</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -107,7 +107,7 @@ const Badge = ({ text, color = 'blue' }) => (
           </div>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>Few-shot 작성 팁</h3>
           <ul>
             <li><strong>예시는 2~5개가 적정</strong>: 너무 적으면 패턴 인식 부족, 너무 많으면 토큰 낭비</li>
@@ -117,7 +117,7 @@ const Badge = ({ text, color = 'blue' }) => (
           </ul>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: Few-shot 프롬프트 작성</h3>
           <p>다음 작업을 위한 Few-shot 프롬프트를 작성해보세요:</p>
           <ul>

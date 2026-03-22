@@ -8,11 +8,11 @@ export default function AiModels() {
       <section className="page-header"><div className="container"><h1>AI 모델 이해하기</h1><p>주요 AI 모델의 특징을 비교하고 적합한 모델을 선택하는 방법을 배웁니다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">대규모 언어 모델(LLM)이란?</h2>
+        <h2>대규모 언어 모델(LLM)이란?</h2>
         <p>대규모 언어 모델(Large Language Model, LLM)은 방대한 텍스트 데이터를 학습하여 인간과 유사한 텍스트를 이해하고 생성할 수 있는 AI 모델입니다. 수십억~수조 개의 매개변수(파라미터)를 가지며, 질문 답변, 글쓰기, 번역, 코딩 등 다양한 작업을 수행합니다.</p>
 
-        <h2 data-aos="fade-up">주요 AI 모델 비교</h2>
-        <div style={{overflowX:'auto'}} data-aos="fade-up">
+        <h2>주요 AI 모델 비교</h2>
+        <div style={{overflowX:'auto'}}>
           <table className="lesson-table">
             <thead><tr><th>항목</th><th>ChatGPT (OpenAI)</th><th>Claude (Anthropic)</th><th>Gemini (Google)</th></tr></thead>
             <tbody>
@@ -26,10 +26,10 @@ export default function AiModels() {
           </table>
         </div>
 
-        <h2 data-aos="fade-up">모델별 프롬프트 팁</h2>
+        <h2>모델별 프롬프트 팁</h2>
 
         <h3>ChatGPT 팁</h3>
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">ChatGPT에 최적화된 프롬프트</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -48,7 +48,7 @@ export default function AiModels() {
         </div>
 
         <h3>Claude 팁</h3>
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">Claude에 최적화된 프롬프트</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -71,7 +71,7 @@ export default function AiModels() {
         </div>
 
         <h3>Gemini 팁</h3>
-        <div className="prompt-example" data-aos="fade-up">
+        <div className="prompt-example">
           <div className="prompt-example-header">Gemini에 최적화된 프롬프트</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -89,8 +89,8 @@ export default function AiModels() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">목적에 맞는 모델 선택 가이드</h2>
-        <div style={{overflowX:'auto'}} data-aos="fade-up">
+        <h2>목적에 맞는 모델 선택 가이드</h2>
+        <div style={{overflowX:'auto'}}>
           <table className="lesson-table">
             <thead><tr><th>작업 유형</th><th>추천 모델</th><th>이유</th></tr></thead>
             <tbody>
@@ -104,7 +104,7 @@ export default function AiModels() {
           </table>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: 같은 프롬프트로 모델 비교하기</h3>
           <p>다음 프롬프트를 ChatGPT, Claude, Gemini에 각각 입력하고 결과를 비교해보세요:</p>
           <div className="code-block" style={{margin:'12px 0'}}>
@@ -116,7 +116,7 @@ export default function AiModels() {
           <p>비교 관점: 톤, 구체성, 균형성, 예시 활용, 가독성</p>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>핵심 요약</h3>
           <ul>
             <li>각 AI 모델은 고유한 강점이 있으므로 목적에 맞게 선택해야 합니다</li>

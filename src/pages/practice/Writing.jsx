@@ -8,8 +8,8 @@ export default function Writing() {
       <section className="page-header"><div className="container"><h1>실전 활용: 글쓰기</h1><p>블로그, 이메일, 보고서 등 다양한 글쓰기에 AI를 활용합니다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">1. 블로그 글 작성</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>1. 블로그 글 작성</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">블로그 포스트 프롬프트</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -29,8 +29,8 @@ export default function Writing() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">2. 비즈니스 이메일</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>2. 비즈니스 이메일</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">이메일 작성 프롬프트</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -50,8 +50,8 @@ export default function Writing() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">3. 보고서 작성</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>3. 보고서 작성</h2>
+        <div className="code-block">
           <div className="code-header">주간 보고서 프롬프트</div>
           <pre><code>{`다음 정보를 바탕으로 주간 업무 보고서를 작성해주세요.
 
@@ -70,8 +70,8 @@ export default function Writing() {
 형식: 표 + 간결한 요약 문단`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">4. 광고 카피</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>4. 광고 카피</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">SNS 광고 카피</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -97,8 +97,8 @@ AI가 당신의 레벨에 맞춰 대화를 이끌어갑니다. 부담 제로.
           </div>
         </div>
 
-        <h2 data-aos="fade-up">5. 자기소개서</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>5. 자기소개서</h2>
+        <div className="code-block">
           <div className="code-header">자기소개서 초안 프롬프트</div>
           <pre><code>{`다음 정보를 바탕으로 IT 기업 지원용 자기소개서 초안을 작성해주세요.
 
@@ -113,8 +113,8 @@ AI가 당신의 레벨에 맞춰 대화를 이끌어갑니다. 부담 제로.
 분량: 800자 내외`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">6. 콘텐츠 리라이팅</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>6. 콘텐츠 리라이팅</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">톤 변경 리라이팅</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -133,7 +133,7 @@ AI가 당신의 레벨에 맞춰 대화를 이끌어갑니다. 부담 제로.
           </div>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: 글쓰기 프롬프트 실전</h3>
           <p>다음 중 하나를 선택하여 프롬프트를 작성하고 AI에게 요청해보세요:</p>
           <ul>

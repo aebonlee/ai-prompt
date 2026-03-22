@@ -8,8 +8,8 @@ export default function Translation() {
       <section className="page-header"><div className="container"><h1>실전 활용: 번역</h1><p>자연스러운 번역과 로컬라이제이션에 AI를 활용합니다</p></div></section>
 
       <section className="lesson-content"><div className="container"><div className="lesson-body">
-        <h2 data-aos="fade-up">1. 직역 vs 의역</h2>
-        <div className="comparison-grid" data-aos="fade-up">
+        <h2>1. 직역 vs 의역</h2>
+        <div className="comparison-grid">
           <div className="comparison-card bad">
             <h4>단순 번역 프롬프트</h4>
             <p>"It's raining cats and dogs를 한국어로 번역해줘"</p>
@@ -22,8 +22,8 @@ export default function Translation() {
           </div>
         </div>
 
-        <h2 data-aos="fade-up">2. 비즈니스 문서 번역</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>2. 비즈니스 문서 번역</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">비즈니스 이메일 번역</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -53,8 +53,8 @@ Best regards,`}</div>
           </div>
         </div>
 
-        <h2 data-aos="fade-up">3. 기술 문서 번역</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>3. 기술 문서 번역</h2>
+        <div className="code-block">
           <div className="code-header">기술 번역 프롬프트</div>
           <pre><code>{`다음 기술 문서를 한국어로 번역해주세요.
 
@@ -70,8 +70,8 @@ with an external system. It runs after every render by default,
 but you can optimize it by passing a dependency array."`}</code></pre>
         </div>
 
-        <h2 data-aos="fade-up">4. 톤/격식 조절 번역</h2>
-        <div className="prompt-example" data-aos="fade-up">
+        <h2>4. 톤/격식 조절 번역</h2>
+        <div className="prompt-example">
           <div className="prompt-example-header">톤 맞춤 번역</div>
           <div className="prompt-example-body">
             <div className="prompt-label">프롬프트</div>
@@ -91,8 +91,8 @@ but you can optimize it by passing a dependency array."`}</code></pre>
           </div>
         </div>
 
-        <h2 data-aos="fade-up">5. 현지화(로컬라이제이션)</h2>
-        <div className="code-block" data-aos="fade-up">
+        <h2>5. 현지화(로컬라이제이션)</h2>
+        <div className="code-block">
           <div className="code-header">앱 UI 현지화 프롬프트</div>
           <pre><code>{`다음 영어 앱 UI 텍스트를 한국어로 현지화해주세요.
 
@@ -110,7 +110,7 @@ but you can optimize it by passing a dependency array."`}</code></pre>
 - "Are you sure you want to delete?" → `}</code></pre>
         </div>
 
-        <div className="callout-box" data-aos="fade-up">
+        <div className="callout-box">
           <h3>번역 프롬프트 핵심 팁</h3>
           <ul>
             <li><strong>번역 원칙을 먼저 제시</strong>: 직역/의역, 용어 처리 규칙을 명시</li>
@@ -120,7 +120,7 @@ but you can optimize it by passing a dependency array."`}</code></pre>
           </ul>
         </div>
 
-        <div className="exercise-box" data-aos="fade-up">
+        <div className="exercise-box">
           <h3>연습: 번역 프롬프트 실전</h3>
           <p>자주 접하는 영어 콘텐츠(기술 블로그, 뉴스레터 등)를 AI로 번역해보세요. 번역 규칙을 다르게 설정하며 결과를 비교해보세요.</p>
         </div>
