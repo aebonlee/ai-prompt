@@ -70,6 +70,7 @@ const WorkbookTranslation = lazy(() => import('./pages/workbook/WorkbookTranslat
 const WorkbookBusiness = lazy(() => import('./pages/workbook/WorkbookBusiness'))
 
 const References = lazy(() => import('./pages/References'))
+const Favorites = lazy(() => import('./pages/Favorites'))
 
 const CommunityList = lazy(() => import('./pages/community/CommunityList'))
 const CommunityWrite = lazy(() => import('./pages/community/CommunityWrite'))
@@ -151,6 +152,7 @@ export default function App() {
               <Route path="/workbook/business" element={<WorkbookBusiness />} />
 
               <Route path="/references" element={<References />} />
+              <Route path="/favorites" element={<Favorites />} />
 
               <Route path="/community" element={<CommunityList />} />
               <Route path="/community/write" element={<ProtectedRoute><CommunityWrite /></ProtectedRoute>} />

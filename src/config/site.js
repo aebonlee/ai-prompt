@@ -76,6 +76,7 @@ const site = {
       ]
     },
     { label: '참고문서', path: '/references' },
+    { label: '즐겨찾기', path: '/favorites' },
     {
       label: '커뮤니티',
       children: [
