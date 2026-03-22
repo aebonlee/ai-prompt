@@ -3,9 +3,11 @@ import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import useCodeCopy from '../hooks/useCodeCopy'
+import useAos from '../hooks/useAos'
 
 export default function PublicLayout() {
   useCodeCopy()
+  useAos()
 
   return (
     <div className="site-wrapper">
