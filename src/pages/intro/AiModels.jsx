@@ -7,7 +7,7 @@ export default function AiModels() {
       <SEOHead title="AI 모델 이해하기" description="ChatGPT, Claude, Gemini 등 주요 AI 모델의 특징과 차이점을 비교합니다." />
       <section className="page-header"><div className="container"><h1>AI 모델 이해하기</h1><p>주요 AI 모델의 특징을 비교하고 적합한 모델을 선택하는 방법을 배웁니다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>대규모 언어 모델(LLM)이란?</h2>
         <p>대규모 언어 모델(Large Language Model, LLM)은 방대한 텍스트 데이터를 학습하여 인간과 유사한 텍스트를 이해하고 생성할 수 있는 AI 모델입니다. 수십억~수조 개의 매개변수(파라미터)를 가지며, 질문 답변, 글쓰기, 번역, 코딩 등 다양한 작업을 수행합니다.</p>
 

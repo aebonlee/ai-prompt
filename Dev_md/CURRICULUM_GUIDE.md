@@ -2,7 +2,7 @@
 
 ## 학습 경로 (Learning Path)
 ```
-PE 개론 → 학습하기 → 실전 활용 → 실습
+PE 개론 → 학습하기 → 실전 활용 → AI활용 Tip! → 실습
 ```
 
 ---
@@ -144,7 +144,50 @@ PE 개론 → 학습하기 → 실전 활용 → 실습
 
 ---
 
-## 4단계: 실습
+## 4단계: AI활용 Tip!
+
+### AI 종류별
+
+#### ChatGPT (`/ai-tips/chatgpt`)
+- ChatGPT란? GPT 버전별 비교 (GPT-3.5, GPT-4, GPT-4o)
+- 주요 기능: 텍스트 생성, 코드 작성, 번역, 데이터 분석
+- 프롬프트 팁: 역할 부여, 구체적 지시, 단계적 요청, 예시 제공
+- 주의사항: 할루시네이션, 개인정보, 저작권, 최신 정보 제한
+
+#### Claude (`/ai-tips/claude`)
+- Claude란? Anthropic의 AI, 200K 토큰 문맥
+- 주요 기능: 긴 문서 분석, 정교한 코딩, 논리적 추론
+- 프롬프트 팁: XML 태그 활용, 체계적 지시, 사고 과정 요청
+- ChatGPT와의 차이점 비교
+
+#### Gemini (`/ai-tips/gemini`)
+- Gemini란? Google의 멀티모달 AI
+- 주요 기능: Google 서비스 연동, 실시간 검색, 멀티모달
+- 프롬프트 팁: Google 검색 연동, 이미지 분석 활용
+
+#### Copilot (`/ai-tips/copilot`)
+- GitHub Copilot란? AI 코딩 어시스턴트
+- VS Code 설정, 단축키, Chat 명령어
+- 활용법: 코드 자동완성, 테스트 생성, 코드 설명
+
+### 기능별
+
+#### 프롬프트 작성법 (`/ai-tips/prompt`)
+- 프롬프트 5대 구성 요소: 역할, 맥락, 지시, 형식, 제약
+- 기법: Zero-shot, Few-shot, CoT, Role-playing
+
+#### AI 코딩 활용 (`/ai-tips/coding`)
+- 코드 생성, 디버깅, 코드 리뷰, 리팩토링 프롬프트
+
+#### AI 문서 작성 (`/ai-tips/writing`)
+- 보고서, 요약, 번역, 이메일 프롬프트
+
+#### AI 학습 활용 (`/ai-tips/learning`)
+- 개념 설명, 퀴즈 생성, 학습 계획 프롬프트
+
+---
+
+## 5단계: 실습
 
 ### 프롬프트 플레이그라운드 (`/playground`)
 **기능**:

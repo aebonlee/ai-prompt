@@ -7,7 +7,7 @@ export default function Translation() {
       <SEOHead title="실전: 번역" description="자연스러운 번역과 현지화에 AI를 활용하는 방법을 배웁니다." />
       <section className="page-header"><div className="container"><h1>실전 활용: 번역</h1><p>자연스러운 번역과 로컬라이제이션에 AI를 활용합니다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>1. 직역 vs 의역</h2>
         <div className="comparison-grid">
           <div className="comparison-card bad">

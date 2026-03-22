@@ -13,6 +13,9 @@ ai-prompt/
 │   ├── ARCHITECTURE.md
 │   └── DEPLOYMENT.md
 ├── public/                 # 정적 파일
+│   ├── CNAME               # 커스텀 도메인
+│   ├── og-image.png         # OG 이미지 (1200x630)
+│   └── favicon.ico          # 파비콘
 └── src/
     ├── main.jsx            # React 엔트리 포인트
     ├── App.jsx             # 라우팅 (React Router)
@@ -46,18 +49,28 @@ ai-prompt/
     │   │   ├── FewShot.jsx          # Few-shot 기법
     │   │   ├── ChainOfThought.jsx   # Chain-of-Thought
     │   │   └── RoleSystem.jsx       # 역할 부여
-    │   └── practice/
-    │       ├── Writing.jsx      # 글쓰기 실전
-    │       ├── Coding.jsx       # 코딩 실전
-    │       ├── Analysis.jsx     # 데이터 분석 실전
-    │       ├── Translation.jsx  # 번역 실전
-    │       └── Business.jsx     # 비즈니스 실전
+    │   ├── practice/
+    │   │   ├── Writing.jsx      # 글쓰기 실전
+    │   │   ├── Coding.jsx       # 코딩 실전
+    │   │   ├── Analysis.jsx     # 데이터 분석 실전
+    │   │   ├── Translation.jsx  # 번역 실전
+    │   │   └── Business.jsx     # 비즈니스 실전
+    │   └── ai-tips/
+    │       ├── AiTipsHome.jsx     # AI활용 Tip! 허브
+    │       ├── AiTipsChatGPT.jsx  # ChatGPT 활용법
+    │       ├── AiTipsClaude.jsx   # Claude 활용법
+    │       ├── AiTipsGemini.jsx   # Gemini 활용법
+    │       ├── AiTipsCopilot.jsx  # Copilot 활용법
+    │       ├── AiTipsPrompt.jsx   # 프롬프트 작성법
+    │       ├── AiTipsCoding.jsx   # AI 코딩 활용
+    │       ├── AiTipsWriting.jsx  # AI 문서 작성
+    │       └── AiTipsLearning.jsx # AI 학습 활용
     └── styles/
         ├── base.css         # CSS 변수, 리셋, 버튼
         ├── navbar.css       # 네비게이션 바
         ├── hero.css         # 히어로 섹션
         ├── footer.css       # 풋터
-        ├── animations.css   # AOS 애니메이션
+        ├── animations.css   # 애니메이션 (AOS 제거됨)
         ├── site.css         # 페이지별 스타일
         ├── auth.css         # 인증 페이지
         ├── dark-mode.css    # 다크 모드
@@ -95,6 +108,15 @@ App.jsx
 | /practice/analysis | Analysis | X |
 | /practice/translation | Translation | X |
 | /practice/business | Business | X |
+| /ai-tips | AiTipsHome | X |
+| /ai-tips/chatgpt | AiTipsChatGPT | X |
+| /ai-tips/claude | AiTipsClaude | X |
+| /ai-tips/gemini | AiTipsGemini | X |
+| /ai-tips/copilot | AiTipsCopilot | X |
+| /ai-tips/prompt | AiTipsPrompt | X |
+| /ai-tips/coding | AiTipsCoding | X |
+| /ai-tips/writing | AiTipsWriting | X |
+| /ai-tips/learning | AiTipsLearning | X |
 | /playground | Playground | X |
 | * | NotFound | X |
 

@@ -7,7 +7,7 @@ export default function Writing() {
       <SEOHead title="실전: 글쓰기" description="블로그, 이메일, 보고서 등 글쓰기에 프롬프트를 활용하는 방법을 배웁니다." />
       <section className="page-header"><div className="container"><h1>실전 활용: 글쓰기</h1><p>블로그, 이메일, 보고서 등 다양한 글쓰기에 AI를 활용합니다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>1. 블로그 글 작성</h2>
         <div className="prompt-example">
           <div className="prompt-example-header">블로그 포스트 프롬프트</div>

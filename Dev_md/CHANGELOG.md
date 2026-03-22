@@ -5,6 +5,36 @@
 
 ---
 
+## [1.2.0] - 2026-03-23
+
+### Fixed
+
+- intro/learn/practice 11개 레슨 페이지에 `.section` 클래스 추가로 상단 여백(4rem) 적용
+
+---
+
+## [1.1.0] - 2026-03-23
+
+### Added
+
+- AI활용 Tip! 메뉴 추가 (koreatech 프로젝트에서 이전)
+- AI 종류별 4개 페이지: ChatGPT, Claude, Gemini, Copilot
+- 기능별 4개 페이지: 프롬프트 작성법, AI 코딩, AI 문서 작성, AI 학습 활용
+- AI Tips 허브 페이지 (`/ai-tips`)
+- 네비게이션 바에 AI활용 Tip! 드롭다운 메뉴
+
+### Fixed
+
+- OG 이미지 404 오류 수정 (Pillow로 1200x630 이미지 생성)
+- favicon.ico 생성 및 index.html 반영
+- 페이지 콘텐츠 미표시 수정 (`data-aos` 153곳 제거, AOS CSS/JS 완전 삭제)
+
+### Removed
+
+- AOS 스크롤 애니메이션 시스템 완전 제거 (animations.css, useAos.js, data-aos 속성)
+
+---
+
 ## [1.0.1] - 2026-03-23
 
 ### Fixed

@@ -7,7 +7,7 @@ export default function WhatIsPrompt() {
       <SEOHead title="프롬프트 엔지니어링이란?" description="프롬프트의 개념과 AI 모델과의 대화 원리를 이해합니다." />
       <section className="page-header"><div className="container"><h1>프롬프트 엔지니어링이란?</h1><p>AI에게 원하는 결과를 이끌어내는 질문의 기술을 배워봅시다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>프롬프트(Prompt)란 무엇인가?</h2>
         <p><strong>프롬프트(Prompt)</strong>란 AI 모델에게 전달하는 입력 텍스트를 의미합니다. 여러분이 ChatGPT나 Claude에게 "오늘 날씨 어때?"라고 질문하면, 이 질문 자체가 바로 프롬프트입니다.</p>
         <p><strong>프롬프트 엔지니어링(Prompt Engineering)</strong>은 AI 모델로부터 원하는 결과를 정확하고 효율적으로 얻기 위해 프롬프트를 체계적으로 설계하고 최적화하는 기술입니다.</p>

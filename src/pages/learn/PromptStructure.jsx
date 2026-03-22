@@ -7,7 +7,7 @@ export default function PromptStructure() {
       <SEOHead title="프롬프트 구조와 패턴" description="효과적인 프롬프트의 구조와 핵심 패턴을 학습합니다." />
       <section className="page-header"><div className="container"><h1>효과적인 프롬프트 구조와 패턴</h1><p>체계적인 프롬프트 설계를 위한 프레임워크를 배웁니다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>RTF 패턴: Role - Task - Format</h2>
         <p>가장 기본적이고 효과적인 프롬프트 구조입니다. 역할(Role), 작업(Task), 형식(Format) 세 가지 요소로 구성됩니다.</p>
 

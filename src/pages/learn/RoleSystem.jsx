@@ -7,7 +7,7 @@ export default function RoleSystem() {
       <SEOHead title="역할 부여와 시스템 프롬프트" description="AI에게 역할을 부여하고 시스템 프롬프트를 설계하는 방법을 배웁니다." />
       <section className="page-header"><div className="container"><h1>역할 부여와 시스템 프롬프트 설계</h1><p>AI의 전문성을 극대화하는 페르소나 설계 기법</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>왜 역할 부여가 효과적인가?</h2>
         <p>AI에게 특정 역할을 부여하면 해당 분야의 전문 지식, 어휘, 사고방식으로 응답합니다. "번역해줘"보다 "당신은 10년 경력의 전문 번역가입니다"가 훨씬 정확한 번역을 이끌어냅니다.</p>
 

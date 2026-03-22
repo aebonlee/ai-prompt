@@ -7,7 +7,7 @@ export default function ChainOfThought() {
       <SEOHead title="Chain-of-Thought 기법" description="AI가 단계별로 사고하도록 유도하는 Chain-of-Thought 프롬프팅을 배웁니다." />
       <section className="page-header"><div className="container"><h1>Chain-of-Thought 프롬프팅</h1><p>AI의 추론 능력을 극대화하는 단계별 사고 유도 기법</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>Chain-of-Thought(CoT)란?</h2>
         <p>Chain-of-Thought는 AI에게 최종 답만 요구하는 대신, <strong>풀이 과정을 단계별로 보여달라고 요청</strong>하는 기법입니다. 복잡한 추론, 수학 문제, 논리적 판단에서 정확도가 크게 향상됩니다.</p>
 

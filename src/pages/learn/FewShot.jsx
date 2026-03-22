@@ -7,7 +7,7 @@ export default function FewShot() {
       <SEOHead title="Few-shot Learning 기법" description="예시를 활용하여 AI의 응답 품질을 높이는 Few-shot 기법을 배웁니다." />
       <section className="page-header"><div className="container"><h1>Few-shot Learning 기법</h1><p>예시의 힘으로 AI의 응답 품질을 극대화하는 방법을 배웁니다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>Zero-shot vs One-shot vs Few-shot</h2>
         <div style={{overflowX:'auto'}}>
           <table className="lesson-table">

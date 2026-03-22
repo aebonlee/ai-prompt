@@ -7,7 +7,7 @@ export default function Analysis() {
       <SEOHead title="실전: 데이터 분석" description="데이터 분석, 시각화, 인사이트 도출에 AI를 활용하는 방법을 배웁니다." />
       <section className="page-header"><div className="container"><h1>실전 활용: 데이터 분석</h1><p>데이터 해석, 시각화 제안, 인사이트 도출에 AI를 활용합니다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>1. 데이터 해석</h2>
         <div className="prompt-example">
           <div className="prompt-example-header">매출 데이터 분석</div>

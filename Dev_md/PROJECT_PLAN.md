@@ -35,7 +35,11 @@
 - 번역 (자연스러운 번역, 현지화)
 - 비즈니스 (회의록, 제안서, 전략)
 
-### 4단계: 실습
+### 4단계: AI활용 Tip!
+- AI 종류별: ChatGPT, Claude, Gemini, Copilot
+- 기능별: 프롬프트 작성법, AI 코딩 활용, AI 문서 작성, AI 학습 활용
+
+### 5단계: 실습
 - 프롬프트 작성 & 분석 플레이그라운드
 
 ## 주요 기능
@@ -50,7 +54,7 @@
 - **Primary Color**: Purple (#7C3AED)
 - **Font**: Noto Sans KR
 - **Glassmorphism**: Navbar backdrop blur
-- **Animations**: AOS fade-up transitions
+- **Animations**: CSS transitions (AOS 제거됨)
 - **Color Themes**: Purple, Blue, Green, Rose, Orange
 
 ## 환경 변수

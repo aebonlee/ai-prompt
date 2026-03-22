@@ -7,7 +7,7 @@ export default function Business() {
       <SEOHead title="실전: 비즈니스" description="회의록, 제안서, 전략 분석 등 비즈니스에 AI를 활용하는 방법을 배웁니다." />
       <section className="page-header"><div className="container"><h1>실전 활용: 비즈니스</h1><p>회의록, 제안서, 시장 분석 등 비즈니스 업무에 AI를 활용합니다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>1. 회의록 정리</h2>
         <div className="prompt-example">
           <div className="prompt-example-header">회의록 작성</div>

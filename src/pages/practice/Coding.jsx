@@ -7,7 +7,7 @@ export default function Coding() {
       <SEOHead title="실전: 코딩" description="코드 생성, 디버깅, 리팩토링에 프롬프트를 활용하는 방법을 배웁니다." />
       <section className="page-header"><div className="container"><h1>실전 활용: 코딩</h1><p>코드 생성, 디버깅, 리팩토링에 AI를 활용합니다</p></div></section>
 
-      <section className="lesson-content"><div className="container"><div className="lesson-body">
+      <section className="section lesson-content"><div className="container"><div className="lesson-body">
         <h2>1. 코드 생성</h2>
         <div className="prompt-example">
           <div className="prompt-example-header">함수 생성 프롬프트</div>
