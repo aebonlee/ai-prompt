@@ -3,7 +3,7 @@ import site from '../config/site'
 
 export default function SEOHead({ title, description }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} - ${site.name}` : `${site.name} - ${site.nameKo}`
+    const fullTitle = title ? `${title} - ${site.name}` : `${site.name} ${site.nameKo}`
     const desc = description || site.description
 
     document.title = fullTitle
