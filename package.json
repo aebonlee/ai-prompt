@@ -1,5 +1,7 @@
 {
   "name": "ai-prompt",
+  "description": "AI 프롬프트 학습",
+  "homepage": "https://ai-prompt.dreamitbiz.com",
   "private": true,
   "version": "1.0.0",
   "type": "module",
