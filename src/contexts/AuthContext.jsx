@@ -9,7 +9,59 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
+  const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [accountBlock, setAccountBlock] = useState(null)
+
+  const clearAccountBlock = () => setAccountBlock(null)
+
+  async function loadProfile(userId) {
+    try {
+      const { data: profileData } = await supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('id', userId)
+        .single()
+      if (profileData) {
+        setProfile(profileData)
+
+        // signup_domain / visited_sites 자동 처리
+        const currentDomain = window.location.hostname
+        const updates = {}
+        if (!profileData.signup_domain) updates.signup_domain = currentDomain
+        const sites = Array.isArray(profileData.visited_sites) ? profileData.visited_sites : []
+        if (!sites.includes(currentDomain)) {
+          updates.visited_sites = [...sites, currentDomain]
+        }
+        if (Object.keys(updates).length > 0) {
+          supabase.from('user_profiles').update(updates).eq('id', userId).then(() => {})
+        }
+
+        // 계정 상태 체크
+        try {
+          const { data: statusData } = await supabase.rpc('check_user_status', {
+            target_user_id: userId,
+            current_domain: currentDomain,
+          })
+          if (statusData && statusData.status && statusData.status !== 'active') {
+            setAccountBlock({
+              status: statusData.status,
+              reason: statusData.reason || '',
+              suspended_until: statusData.suspended_until || null,
+            })
+            await supabase.auth.signOut()
+            setUser(null)
+            setProfile(null)
+            return
+          }
+        } catch {
+          // check_user_status 함수 미존재 시 무시
+        }
+      }
+    } catch {
+      setProfile(null)
+    }
+  }
 
   useEffect(() => {
     if (!supabase) {
@@ -18,7 +70,19 @@ export function AuthProvider({ children }) {
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user ?? null)
+      const u = session?.user ?? null
+      setUser(u)
+      if (u) {
+        loadProfile(u.id)
+        if (event === 'SIGNED_IN') {
+          supabase.from('user_profiles')
+            .update({ last_sign_in_at: new Date().toISOString() })
+            .eq('id', u.id)
+            .then(() => {})
+        }
+      } else {
+        setProfile(null)
+      }
       if (event === 'INITIAL_SESSION') {
         setLoading(false)
       }
@@ -87,7 +151,10 @@ export function AuthProvider({ children }) {
 
   const value = {
     user,
+    profile,
     loading,
+    accountBlock,
+    clearAccountBlock,
     signUp,
     signIn,
     signInWithGoogle,
