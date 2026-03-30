@@ -24,8 +24,8 @@ export default function Register() {
       return
     }
 
-    if (password.length < 6) {
-      setError('비밀번호는 6자 이상이어야 합니다.')
+    if (!/^(?=.*[a-zA-Z])(?=.*\d).{8,}$/.test(password)) {
+      setError('비밀번호는 8자 이상, 영문과 숫자를 포함해야 합니다.')
       return
     }
 
@@ -84,7 +84,7 @@ export default function Register() {
             <input
               id="password"
               type="password"
-              placeholder="6자 이상 입력"
+              placeholder="8자 이상, 영문+숫자"
               value={password}
               onChange={e => setPassword(e.target.value)}
               required

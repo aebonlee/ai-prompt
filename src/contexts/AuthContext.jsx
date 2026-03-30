@@ -143,6 +143,14 @@ export function AuthProvider({ children }) {
     return { data, error }
   }
 
+  const resetPassword = async (email) => {
+    if (!supabase) return noSupabaseError
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin + '/login',
+    })
+    return { data, error }
+  }
+
   const signOut = async () => {
     if (!supabase) return noSupabaseError
     const { error } = await supabase.auth.signOut({ scope: 'local' })
@@ -159,6 +167,7 @@ export function AuthProvider({ children }) {
     signIn,
     signInWithGoogle,
     signInWithKakao,
+    resetPassword,
     signOut
   }
 
