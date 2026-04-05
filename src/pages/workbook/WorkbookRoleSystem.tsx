@@ -43,9 +43,9 @@ export default function WorkbookRoleSystem() {
               <code>당신은 경력 10년의 시니어 데이터 분석가입니다. 데이터를 기반으로 객관적이고 실행 가능한 인사이트를 제공합니다.</code>
             </div>
             <p><strong>사용자 프롬프트를 작성해보세요:</strong></p>
-            <textarea className="exercise-textarea" rows="6" placeholder="시스템 프롬프트와 조합할 사용자 프롬프트를 작성해보세요..." />
+            <textarea className="exercise-textarea" rows={6} placeholder="시스템 프롬프트와 조합할 사용자 프롬프트를 작성해보세요..." />
             <p style={{ marginTop: '1rem' }}><strong>추가 도전:</strong> 위의 시스템 프롬프트를 다른 역할로 변경하여 새로운 조합을 만들어보세요.</p>
-            <textarea className="exercise-textarea" rows="6" placeholder="새로운 시스템 프롬프트 + 사용자 프롬프트 조합을 작성해보세요..." />
+            <textarea className="exercise-textarea" rows={6} placeholder="새로운 시스템 프롬프트 + 사용자 프롬프트 조합을 작성해보세요..." />
           </div>
 
           <div className="exercise-box">

@@ -41,7 +41,7 @@ export default function WorkbookFewShot() {
             <h3>프롬프트 작성 연습</h3>
             <p>감성 분석을 위한 Few-shot 예시 3개를 직접 작성해보세요.</p>
             <p><strong>과제:</strong> 음식 리뷰에 대한 감성 분석 Few-shot 프롬프트를 완성하세요. 긍정, 부정, 중립 예시를 각각 포함해야 합니다.</p>
-            <textarea className="exercise-textarea" rows="8" placeholder="Few-shot 프롬프트를 작성해보세요...&#10;&#10;예시:&#10;입력: &quot;...&quot;&#10;감성: 긍정/부정/중립&#10;&#10;입력: &quot;...&quot;&#10;감성: ..." />
+            <textarea className="exercise-textarea" rows={8} placeholder="Few-shot 프롬프트를 작성해보세요...&#10;&#10;예시:&#10;입력: &quot;...&quot;&#10;감성: 긍정/부정/중립&#10;&#10;입력: &quot;...&quot;&#10;감성: ..." />
           </div>
 
           <div className="exercise-box">

@@ -44,7 +44,7 @@ export default function WorkbookStructure() {
               <li><strong>P</strong>ersonality (성격): 응답 톤 설정</li>
               <li><strong>E</strong>xperiment (실험): 여러 변형 시도</li>
             </ul>
-            <textarea className="exercise-textarea" rows="8" placeholder="CRISPE 프레임워크로 프롬프트를 작성해보세요..." />
+            <textarea className="exercise-textarea" rows={8} placeholder="CRISPE 프레임워크로 프롬프트를 작성해보세요..." />
           </div>
 
           <div className="exercise-box">

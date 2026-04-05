@@ -181,7 +181,7 @@ export default function LecturesHome() {
                             </tr>
                             {isExpanded && (
                               <tr className="lecture-dropdown-row">
-                                <td colSpan="3">
+                                <td colSpan={3}>
                                   <div className="lecture-dropdown-content">
                                     {lecture.content ? (
                                       <div className="lecture-content-text">

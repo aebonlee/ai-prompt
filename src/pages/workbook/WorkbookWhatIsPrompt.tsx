@@ -36,7 +36,7 @@ export default function WorkbookWhatIsPrompt() {
             <h3>프롬프트 작성 연습</h3>
             <p>다음 상황에 맞는 프롬프트를 작성해보세요:</p>
             <p><strong>상황:</strong> 회사 소개 이메일을 작성해야 합니다. 신규 거래처에 보낼 우리 회사의 주요 서비스와 강점을 소개하는 이메일을 AI에게 요청하는 프롬프트를 작성해보세요.</p>
-            <textarea className="exercise-textarea" rows="6" placeholder="여기에 프롬프트를 작성해보세요..." />
+            <textarea className="exercise-textarea" rows={6} placeholder="여기에 프롬프트를 작성해보세요..." />
           </div>
 
           <div className="exercise-box">

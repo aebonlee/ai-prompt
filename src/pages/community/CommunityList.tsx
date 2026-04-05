@@ -38,7 +38,7 @@ export default function CommunityList() {
   function formatDate(dateStr) {
     const d = new Date(dateStr)
     const now = new Date()
-    const diff = now - d
+    const diff = now.getTime() - d.getTime()
     if (diff < 60000) return '방금 전'
     if (diff < 3600000) return `${Math.floor(diff / 60000)}분 전`
     if (diff < 86400000) return `${Math.floor(diff / 3600000)}시간 전`

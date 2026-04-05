@@ -40,7 +40,7 @@ export default function WorkbookAiModels() {
             <div className="prompt-block">
               <code>"한국의 전통 음식 5가지를 추천하고, 각각의 특징을 한 문장으로 설명해줘."</code>
             </div>
-            <textarea className="exercise-textarea" rows="6" placeholder="각 모델의 응답 차이를 정리해보세요..." />
+            <textarea className="exercise-textarea" rows={6} placeholder="각 모델의 응답 차이를 정리해보세요..." />
           </div>
 
           <div className="exercise-box">

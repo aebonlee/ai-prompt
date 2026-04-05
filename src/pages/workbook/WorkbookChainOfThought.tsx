@@ -41,7 +41,7 @@ export default function WorkbookChainOfThought() {
             <h3>프롬프트 작성 연습</h3>
             <p>복잡한 분석 문제에 CoT 패턴을 적용한 프롬프트를 작성해보세요.</p>
             <p><strong>과제:</strong> "스타트업의 시장 진입 전략을 수립해달라"는 요청에 단계별 사고를 유도하는 CoT 프롬프트를 작성하세요.</p>
-            <textarea className="exercise-textarea" rows="8" placeholder="CoT 패턴을 적용한 프롬프트를 작성해보세요...&#10;&#10;예시:&#10;다음 문제를 단계별로 생각하여 풀어주세요.&#10;1단계: ...&#10;2단계: ...&#10;..." />
+            <textarea className="exercise-textarea" rows={8} placeholder="CoT 패턴을 적용한 프롬프트를 작성해보세요...&#10;&#10;예시:&#10;다음 문제를 단계별로 생각하여 풀어주세요.&#10;1단계: ...&#10;2단계: ...&#10;..." />
           </div>
 
           <div className="exercise-box">

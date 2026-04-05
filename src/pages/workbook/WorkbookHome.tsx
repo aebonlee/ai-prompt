@@ -181,7 +181,7 @@ export default function WorkbookHome() {
                             </tr>
                             {isExpanded && (
                               <tr className="lecture-dropdown-row">
-                                <td colSpan="3">
+                                <td colSpan={3}>
                                   <div className="lecture-dropdown-content">
                                     {workbook.content ? (
                                       <div className="lecture-content-text">

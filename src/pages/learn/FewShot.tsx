@@ -90,18 +90,18 @@ export default function FewShot() {
             <div className="prompt-text">{`다음 패턴을 따라 React 컴포넌트를 작성해주세요.
 
 예시 1: Button
-const Button = ({ label, onClick, variant = 'primary' }) => (
+const Button = ({ label, onClick, variant = 'primary' }: any) => (
   <button className={\`btn btn-\${variant}\`} onClick={onClick}>{label}</button>
 )
 
 예시 2: Badge
-const Badge = ({ text, color = 'blue' }) => (
+const Badge = ({ text, color = 'blue' }: any) => (
   <span className={\`badge badge-\${color}\`}>{text}</span>
 )
 
 요청: Alert 컴포넌트 (message, type='info' props)`}</div>
             <div className="prompt-label">AI 응답</div>
-            <div className="prompt-result">{`const Alert = ({ message, type = 'info' }) => (
+            <div className="prompt-result">{`const Alert = ({ message, type = 'info' }: any) => (
   <div className={\`alert alert-\${type}\`}>{message}</div>
 )`}</div>
           </div>
