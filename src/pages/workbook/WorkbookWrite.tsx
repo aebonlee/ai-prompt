@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
-import { getLecture, createLecture, updateLecture } from '../../services/lectureService'
+import { getWorkbook, createWorkbook, updateWorkbook } from '../../services/workbookService'
 import SEOHead from '../../components/SEOHead'
 
-export default function LectureWrite() {
+export default function WorkbookWrite() {
   const navigate = useNavigate()
   const { id } = useParams()
   const { user } = useAuth()
@@ -24,13 +24,13 @@ export default function LectureWrite() {
 
   useEffect(() => {
     if (isEdit) {
-      loadLecture()
+      loadWorkbook()
     }
   }, [id])
 
-  const loadLecture = async () => {
+  const loadWorkbook = async () => {
     setLoading(true)
-    const { data, error: err } = await getLecture(id)
+    const { data, error: err } = await getWorkbook(id)
     if (data) {
       setForm({
         week_number: data.week_number || '',
@@ -77,7 +77,7 @@ export default function LectureWrite() {
 
     try {
       if (isEdit) {
-        const { error: err } = await updateLecture(id, {
+        const { error: err } = await updateWorkbook(id, {
           weekNumber: Number(form.week_number),
           title: form.title.trim(),
           content: form.content.trim(),
@@ -85,9 +85,9 @@ export default function LectureWrite() {
           isPublished: form.is_published,
         })
         if (err) throw err
-        alert('강의안이 수정되었습니다.')
+        alert('워크북이 수정되었습니다.')
       } else {
-        const { error: err } = await createLecture({
+        const { error: err } = await createWorkbook({
           weekNumber: Number(form.week_number),
           title: form.title.trim(),
           content: form.content.trim(),
@@ -97,10 +97,10 @@ export default function LectureWrite() {
           authorName: user.user_metadata?.display_name || user.email,
         })
         if (err) throw err
-        alert('강의안이 등록되었습니다.')
+        alert('워크북이 등록되었습니다.')
       }
-      navigate('/lectures')
-    } catch (err) {
+      navigate('/workbook')
+    } catch (err: any) {
       setError(err.message || '오류가 발생했습니다.')
     } finally {
       setSubmitting(false)
@@ -119,11 +119,11 @@ export default function LectureWrite() {
 
   return (
     <>
-      <SEOHead title={isEdit ? '강의안 수정' : '강의안 등록'} />
+      <SEOHead title={isEdit ? '워크북 수정' : '워크북 등록'} />
 
       <section className="page-header">
         <div className="container">
-          <h1>{isEdit ? '강의안 수정' : '강의안 등록'}</h1>
+          <h1>{isEdit ? '워크북 수정' : '워크북 등록'}</h1>
         </div>
       </section>
 
@@ -150,7 +150,7 @@ export default function LectureWrite() {
                   type="text"
                   value={form.title}
                   onChange={(e) => handleChange('title', e.target.value)}
-                  placeholder="강의 제목을 입력하세요"
+                  placeholder="워크북 제목을 입력하세요"
                   required
                 />
               </div>
@@ -161,7 +161,7 @@ export default function LectureWrite() {
               <textarea
                 value={form.content}
                 onChange={(e) => handleChange('content', e.target.value)}
-                placeholder="강의 내용을 입력하세요"
+                placeholder="실습 내용을 입력하세요"
                 rows={12}
               />
             </div>
@@ -189,7 +189,7 @@ export default function LectureWrite() {
             </label>
 
             <div className="lecture-form-actions">
-              <Link to="/lectures" className="lecture-action-btn">
+              <Link to="/workbook" className="lecture-action-btn">
                 취소
               </Link>
               <button type="submit" className="lecture-action-btn primary" disabled={submitting}>

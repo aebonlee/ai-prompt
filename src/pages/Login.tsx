@@ -49,7 +49,7 @@ export default function Login() {
     try {
       if (provider === 'google') await signInWithGoogle()
       else if (provider === 'kakao') await signInWithKakao()
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message || '로그인 중 오류가 발생했습니다.')
     }
   }
