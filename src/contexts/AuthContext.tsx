@@ -129,6 +129,7 @@ export function AuthProvider({ children }) {
       email,
       password,
       options: {
+        emailRedirectTo: window.location.origin + '/',
         data: { full_name: fullName }
       }
     })
@@ -155,7 +156,7 @@ export function AuthProvider({ children }) {
     if (!supabase) return noSupabaseError
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: window.location.origin + window.location.pathname }
+      options: { redirectTo: window.location.origin + '/' }
     })
     return { data, error }
   }
@@ -165,7 +166,7 @@ export function AuthProvider({ children }) {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'kakao',
       options: {
-        redirectTo: window.location.origin + window.location.pathname,
+        redirectTo: window.location.origin + '/',
         scopes: 'profile_nickname profile_image account_email',
       }
     })
