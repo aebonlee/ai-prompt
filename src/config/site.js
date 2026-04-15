@@ -64,7 +64,7 @@ const site = {
         { label: 'AI 학습 활용', path: '/ai-tips/learning' }
       ]
     },
-    { label: '실습', path: '/playground' },
+    { label: '프롬프트 실습', path: '/playground' },
     { label: '강의안', path: '/lectures' },
     { label: '참고문서', path: '/references' },
     { label: '즐겨찾기', path: '/favorites' },
