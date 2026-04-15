@@ -55,20 +55,6 @@ const LectureAnalysis = lazy(() => import('./pages/lectures/LectureAnalysis'))
 const LectureTranslation = lazy(() => import('./pages/lectures/LectureTranslation'))
 const LectureBusiness = lazy(() => import('./pages/lectures/LectureBusiness'))
 
-const WorkbookHome = lazy(() => import('./pages/workbook/WorkbookHome'))
-const WorkbookWriteForm = lazy(() => import('./pages/workbook/WorkbookWrite'))
-const WorkbookDetailView = lazy(() => import('./pages/workbook/WorkbookDetail'))
-const WorkbookWhatIsPrompt = lazy(() => import('./pages/workbook/WorkbookWhatIsPrompt'))
-const WorkbookAiModels = lazy(() => import('./pages/workbook/WorkbookAiModels'))
-const WorkbookStructure = lazy(() => import('./pages/workbook/WorkbookStructure'))
-const WorkbookFewShot = lazy(() => import('./pages/workbook/WorkbookFewShot'))
-const WorkbookChainOfThought = lazy(() => import('./pages/workbook/WorkbookChainOfThought'))
-const WorkbookRoleSystem = lazy(() => import('./pages/workbook/WorkbookRoleSystem'))
-const WorkbookWriting = lazy(() => import('./pages/workbook/WorkbookWriting'))
-const WorkbookCoding = lazy(() => import('./pages/workbook/WorkbookCoding'))
-const WorkbookAnalysis = lazy(() => import('./pages/workbook/WorkbookAnalysis'))
-const WorkbookTranslation = lazy(() => import('./pages/workbook/WorkbookTranslation'))
-const WorkbookBusiness = lazy(() => import('./pages/workbook/WorkbookBusiness'))
 
 const References = lazy(() => import('./pages/References'))
 const Favorites = lazy(() => import('./pages/Favorites'))
@@ -136,22 +122,6 @@ export default function App() {
               <Route path="/lectures/analysis" element={<LectureAnalysis />} />
               <Route path="/lectures/translation" element={<LectureTranslation />} />
               <Route path="/lectures/business" element={<LectureBusiness />} />
-
-              <Route path="/workbook" element={<WorkbookHome />} />
-              <Route path="/workbook/write" element={<ProtectedRoute><WorkbookWriteForm /></ProtectedRoute>} />
-              <Route path="/workbook/edit/:id" element={<ProtectedRoute><WorkbookWriteForm /></ProtectedRoute>} />
-              <Route path="/workbook/view/:id" element={<WorkbookDetailView />} />
-              <Route path="/workbook/what-is-prompt" element={<WorkbookWhatIsPrompt />} />
-              <Route path="/workbook/ai-models" element={<WorkbookAiModels />} />
-              <Route path="/workbook/structure" element={<WorkbookStructure />} />
-              <Route path="/workbook/few-shot" element={<WorkbookFewShot />} />
-              <Route path="/workbook/chain-of-thought" element={<WorkbookChainOfThought />} />
-              <Route path="/workbook/role-system" element={<WorkbookRoleSystem />} />
-              <Route path="/workbook/writing" element={<WorkbookWriting />} />
-              <Route path="/workbook/coding" element={<WorkbookCoding />} />
-              <Route path="/workbook/analysis" element={<WorkbookAnalysis />} />
-              <Route path="/workbook/translation" element={<WorkbookTranslation />} />
-              <Route path="/workbook/business" element={<WorkbookBusiness />} />
 
               <Route path="/references" element={<References />} />
               <Route path="/favorites" element={<Favorites />} />

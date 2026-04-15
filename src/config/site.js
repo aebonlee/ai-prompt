@@ -65,22 +65,7 @@ const site = {
       ]
     },
     { label: '실습', path: '/playground' },
-    {
-      label: '강의안',
-      path: '/lectures',
-      children: [
-        { label: '강의안 목록', path: '/lectures' },
-        { label: '강의안 등록', path: '/lectures/write' }
-      ]
-    },
-    {
-      label: '실습워크북',
-      path: '/workbook',
-      children: [
-        { label: '워크북 목록', path: '/workbook' },
-        { label: '워크북 등록', path: '/workbook/write' }
-      ]
-    },
+    { label: '강의안', path: '/lectures' },
     { label: '참고문서', path: '/references' },
     { label: '즐겨찾기', path: '/favorites' },
     {
