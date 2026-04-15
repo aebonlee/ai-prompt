@@ -668,49 +668,169 @@ function generateImprovedPrompt(
   original: string,
   flags: { hasRole: boolean; hasContext: boolean; hasOutput: boolean; hasConstraint: boolean; hasExample: boolean; hasSteps: boolean }
 ) {
+  const topic = detectTopic(original)
+  const coreRequest = extractCoreRequest(original)
   const parts: string[] = []
 
-  // 1) 역할 부여 추가
+  // 1) 역할 부여 — 주제에 맞는 구체적 전문가
   if (!flags.hasRole) {
-    const topic = extractTopic(original)
-    parts.push(`당신은 ${topic} 분야의 전문가입니다.`)
-  }
-
-  // 2) 맥락 추가
-  if (!flags.hasContext) {
-    parts.push('[배경] 이 작업의 목적은 실무에서 활용하기 위함이며, 대상은 해당 분야 초중급자입니다.')
-  }
-
-  // 원본 프롬프트 삽입
-  parts.push('')
-  parts.push(original.trim())
-
-  // 3) 출력 형식 추가
-  if (!flags.hasOutput) {
+    parts.push(`[역할] ${topic.role}`)
     parts.push('')
-    parts.push('[출력 형식] 결과를 구조화된 형태(제목, 번호 목록, 표 등)로 정리해주세요.')
   }
 
-  // 4) 제약 조건 추가
+  // 2) 맥락 — 주제 관련 배경 정보
+  if (!flags.hasContext) {
+    parts.push(`[배경] ${topic.context}`)
+    parts.push('')
+  }
+
+  // 3) 핵심 요청 — 원본 내용을 구체화하여 재작성
+  parts.push('[요청]')
+  parts.push(coreRequest)
+  parts.push('')
+
+  // 4) 세부 요구사항 — 원본에 없던 구체적 항목 추가
+  if (!flags.hasSteps) {
+    parts.push('[세부 요구사항]')
+    topic.details.forEach((d, i) => parts.push(`${i + 1}. ${d}`))
+    parts.push('')
+  }
+
+  // 5) 출력 형식 — 주제에 적합한 형식 지정
+  if (!flags.hasOutput) {
+    parts.push(`[출력 형식] ${topic.outputFormat}`)
+    parts.push('')
+  }
+
+  // 6) 제약 조건 — 실질적 제약
   if (!flags.hasConstraint) {
-    parts.push('[제약] 핵심 내용 중심으로 간결하게 작성해주세요.')
-  }
-
-  // 5) 단계 구분 제안
-  if (!flags.hasSteps && original.length > 80) {
-    parts.push('[요청] 단계별로 나누어 설명해주세요.')
+    parts.push(`[제약 조건]`)
+    topic.constraints.forEach(c => parts.push(`- ${c}`))
   }
 
   return parts.join('\n')
 }
 
-function extractTopic(prompt: string): string {
-  if (/코드|프로그래밍|개발|함수|API|리액트|자바|파이썬/.test(prompt)) return '소프트웨어 개발'
-  if (/마케팅|광고|브랜드|고객|매출/.test(prompt)) return '마케팅'
-  if (/번역|영어|일본어|한국어|언어/.test(prompt)) return '번역 및 언어'
-  if (/데이터|분석|통계|차트|그래프/.test(prompt)) return '데이터 분석'
-  if (/글쓰기|작문|에세이|보고서|문서/.test(prompt)) return '글쓰기'
-  if (/디자인|UI|UX|레이아웃/.test(prompt)) return 'UX/UI 디자인'
-  if (/교육|학습|수업|강의|학생/.test(prompt)) return '교육'
-  return '해당'
+/* ─── 주제 감지 ─── */
+interface TopicInfo {
+  role: string
+  context: string
+  details: string[]
+  outputFormat: string
+  constraints: string[]
+}
+
+function detectTopic(prompt: string): TopicInfo {
+  const p = prompt.toLowerCase()
+
+  if (/코드|프로그래밍|개발|함수|api|리액트|react|자바|파이썬|python|앱|웹/.test(p)) {
+    const lang = /리액트|react/.test(p) ? 'React' : /파이썬|python/.test(p) ? 'Python' : /자바/.test(p) ? 'Java' : ''
+    return {
+      role: `당신은 10년 경력의 시니어 풀스택 개발자입니다.${lang ? ` 특히 ${lang} 전문가입니다.` : ''}`,
+      context: '실무 프로젝트에서 바로 사용할 수 있는 수준의 코드를 작성하려고 합니다. 대상 사용자는 중급 개발자입니다.',
+      details: ['핵심 로직을 함수/컴포넌트 단위로 분리해주세요', '에러 처리와 예외 상황을 고려해주세요', '주요 결정 사항에 대해 왜 그렇게 구현했는지 설명해주세요', '확장성과 유지보수를 고려한 구조로 작성해주세요'],
+      outputFormat: '코드 블록으로 파일별로 분리하여 작성하고, 각 파일의 역할과 주요 함수에 간단한 설명을 달아주세요.',
+      constraints: ['최신 문법과 모범 사례(Best Practice)를 따를 것', '외부 라이브러리는 최소화하고, 사용 시 선택 이유를 명시할 것', '보안 취약점이 없도록 주의할 것']
+    }
+  }
+
+  if (/번역|영어|일본어|한국어|translate/.test(p)) {
+    const lang = /영어|english/.test(p) ? '영어' : /일본어|japanese/.test(p) ? '일본어' : '해당 언어'
+    return {
+      role: `당신은 ${lang} 전문 번역가이며, 원문의 뉘앙스와 문화적 맥락을 정확히 전달하는 것을 전문으로 합니다.`,
+      context: '공식 문서/비즈니스 커뮤니케이션에서 사용할 번역이 필요합니다. 자연스러운 표현을 우선시합니다.',
+      details: ['원문의 의도와 톤을 유지하면서 자연스럽게 번역해주세요', '직역이 아닌 의역을 우선하되, 핵심 의미는 정확히 전달해주세요', '전문 용어는 해당 분야에서 통용되는 표현을 사용해주세요'],
+      outputFormat: '원문과 번역문을 대조 형식으로 보여주고, 번역 시 특별히 고려한 점이 있으면 [번역 노트]로 설명해주세요.',
+      constraints: ['문화적으로 부적절한 직역을 피할 것', '일관된 용어 사용을 유지할 것', '대상 독자의 수준에 맞는 어휘를 선택할 것']
+    }
+  }
+
+  if (/마케팅|광고|브랜드|고객|매출|홍보|캠페인/.test(p)) {
+    return {
+      role: '당신은 디지털 마케팅 전략 전문가이며, 다양한 산업의 마케팅 캠페인을 성공적으로 이끈 15년 경력의 컨설턴트입니다.',
+      context: '실제 비즈니스에 적용할 마케팅 전략을 수립하려고 합니다. 구체적이고 실행 가능한 제안이 필요합니다.',
+      details: ['타겟 고객층을 구체적으로 정의해주세요', 'KPI와 측정 가능한 성과 지표를 제시해주세요', '예산 규모별 실행 방안을 구분해주세요', '경쟁사 대비 차별화 포인트를 도출해주세요'],
+      outputFormat: '제목, 핵심 전략 요약, 세부 실행 계획(표), 예상 성과를 구조화하여 작성해주세요.',
+      constraints: ['실현 가능한 전략 위주로 제안할 것', '구체적인 수치나 기간을 포함할 것', '최신 트렌드를 반영할 것']
+    }
+  }
+
+  if (/데이터|분석|통계|차트|그래프|엑셀|sql/.test(p)) {
+    return {
+      role: '당신은 통계학 석사 학위를 가진 시니어 데이터 분석가이며, 비즈니스 인사이트 도출에 전문성을 갖고 있습니다.',
+      context: '의사결정에 활용할 데이터 분석 결과가 필요합니다. 비전문가도 이해할 수 있는 설명이 중요합니다.',
+      details: ['데이터의 특성과 분포를 먼저 파악해주세요', '적합한 분석 방법론을 선택하고 그 이유를 설명해주세요', '분석 결과에서 도출할 수 있는 인사이트를 정리해주세요', '시각화 방안도 함께 제안해주세요'],
+      outputFormat: '분석 요약 → 상세 분석 → 인사이트 → 권고사항 순서로 구조화하고, 핵심 수치는 강조 표시해주세요.',
+      constraints: ['통계적 근거를 명확히 제시할 것', '비전문가가 이해할 수 있는 용어로 설명할 것', '데이터의 한계점도 함께 언급할 것']
+    }
+  }
+
+  if (/글쓰기|작문|에세이|보고서|문서|기획서|제안서/.test(p)) {
+    return {
+      role: '당신은 비즈니스 문서 작성 전문가이며, 다양한 기업의 보고서, 기획서, 제안서를 작성해온 전문 테크니컬 라이터입니다.',
+      context: '전문적이면서도 읽기 쉬운 문서를 작성해야 합니다. 독자는 경영진 또는 의사결정자입니다.',
+      details: ['문서의 목적과 핵심 메시지를 명확히 해주세요', '논리적 흐름에 따라 구조를 잡아주세요', '데이터와 근거를 포함하여 설득력을 높여주세요', '핵심 내용은 Executive Summary로 먼저 제시해주세요'],
+      outputFormat: 'Executive Summary → 본문(번호 매긴 섹션) → 결론 및 다음 단계 형식으로 작성해주세요.',
+      constraints: ['한 문장은 40자 이내로 간결하게 작성할 것', '전문 용어 사용 시 괄호 안에 설명을 덧붙일 것', '핵심 수치와 키워드는 볼드 처리할 것']
+    }
+  }
+
+  if (/비교|vs|차이|장단점/.test(p)) {
+    return {
+      role: '당신은 기술 리서치 애널리스트이며, 객관적이고 공정한 비교 분석을 전문으로 합니다.',
+      context: '의사결정을 위한 객관적 비교 자료가 필요합니다. 각 선택지의 장단점을 균형 있게 평가해야 합니다.',
+      details: ['각 항목의 핵심 특징을 먼저 정리해주세요', '비교 기준별로 체계적으로 분석해주세요', '실제 사용 사례와 시나리오별 추천을 포함해주세요', '최종 추천과 그 근거를 명확히 제시해주세요'],
+      outputFormat: '비교 대상 소개 → 기준별 비교 표 → 시나리오별 추천 → 최종 결론 순으로 작성해주세요.',
+      constraints: ['특정 편향 없이 객관적으로 분석할 것', '최신 정보를 기준으로 비교할 것', '비교 표에 점수(5점 만점)를 포함할 것']
+    }
+  }
+
+  if (/디자인|ui|ux|레이아웃|화면|인터페이스/.test(p)) {
+    return {
+      role: '당신은 사용자 중심 설계 전문가이며, 접근성과 사용성을 겸비한 디자인을 추구하는 시니어 UX 디자이너입니다.',
+      context: '실제 서비스에 적용할 UI/UX 디자인을 설계해야 합니다. 사용자 편의성과 비즈니스 목표를 동시에 달성해야 합니다.',
+      details: ['사용자 페르소나와 주요 사용 시나리오를 정의해주세요', '정보 구조(IA)와 화면 흐름을 설계해주세요', '핵심 화면의 와이어프레임을 설명해주세요', '접근성(WCAG) 기준 준수 사항을 포함해주세요'],
+      outputFormat: '사용자 분석 → 화면 흐름도 → 핵심 화면 설명 → 디자인 가이드라인 순으로 정리해주세요.',
+      constraints: ['모바일 우선(Mobile First) 접근을 적용할 것', '색상은 대비율 4.5:1 이상을 유지할 것', '주요 액션은 3클릭 이내에 도달하도록 설계할 것']
+    }
+  }
+
+  if (/교육|학습|수업|강의|학생|커리큘럼/.test(p)) {
+    return {
+      role: '당신은 교수설계(Instructional Design) 전문가이며, 효과적인 학습 경험을 설계하는 15년 경력의 교육 컨설턴트입니다.',
+      context: '학습자의 이해도와 참여도를 높이는 교육 콘텐츠를 설계해야 합니다. 다양한 학습 수준의 학생을 고려해야 합니다.',
+      details: ['학습 목표를 Bloom의 분류 체계에 따라 명확히 설정해주세요', '사전 지식 수준과 학습 전제 조건을 정의해주세요', '이론-실습-평가 순서로 학습 흐름을 구성해주세요', '학습 효과를 확인할 수 있는 평가 방법을 제안해주세요'],
+      outputFormat: '학습 목표 → 학습 내용(단계별) → 활동/실습 → 평가 방법 순으로 구성해주세요.',
+      constraints: ['한 세션은 50분 이내로 구성할 것', '쉬운 개념에서 어려운 개념으로 점진적으로 진행할 것', '실습 비중을 전체의 40% 이상으로 할 것']
+    }
+  }
+
+  // 범용 기본값
+  return {
+    role: '당신은 해당 분야에서 10년 이상의 실무 경험을 가진 전문가입니다. 명확하고 실용적인 답변을 제공하는 것을 원칙으로 합니다.',
+    context: '실무에서 바로 활용할 수 있는 수준의 결과물이 필요합니다. 대상 독자는 해당 분야의 초중급 실무자입니다.',
+    details: ['핵심 개념을 먼저 정리해주세요', '구체적인 예시를 포함해주세요', '실무 적용 시 주의할 점을 알려주세요', '추가로 학습하면 좋을 관련 주제를 추천해주세요'],
+    outputFormat: '핵심 요약 → 상세 설명(번호 매긴 항목) → 실무 적용 팁 → 참고 자료 순으로 정리해주세요.',
+    constraints: ['전문 용어 사용 시 쉬운 설명을 병기할 것', '각 항목은 2-3문장으로 간결하게 작성할 것', '실제 사례를 1개 이상 포함할 것']
+  }
+}
+
+function extractCoreRequest(prompt: string): string {
+  // 원본에서 역할 부여 문장 제거 (이미 [역할]로 분리했으므로)
+  let core = prompt.trim()
+    .replace(/^(당신은|너는)\s+.*?(입니다|합니다|입니다\.|합니다\.)\s*/m, '')
+    .trim()
+
+  if (!core) return prompt.trim()
+
+  // 핵심 요청을 더 구체적으로 재구성
+  // "~해줘", "~해주세요" 등의 요청문을 찾아서 구체화
+  const lines = core.split('\n').filter(l => l.trim())
+
+  if (lines.length === 1 && lines[0].length < 80) {
+    // 짧은 단일 요청 → 구체화된 문장으로 변환
+    return `${lines[0].replace(/[.。]?$/, '')}.\n위 요청에 대해 체계적이고 구체적으로 답변해주세요.`
+  }
+
+  return core
 }
