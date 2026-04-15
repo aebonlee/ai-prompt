@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { supabase } from '../config/supabase'
+import { isAdmin as isAdminEmail } from '../config/admin'
 
 const AuthContext = createContext<any>(null)
 
@@ -191,6 +192,7 @@ export function AuthProvider({ children }) {
     user,
     profile,
     loading,
+    isAdmin: isAdminEmail(user?.email),
     accountBlock,
     clearAccountBlock,
     signUp,
