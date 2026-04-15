@@ -116,11 +116,11 @@ function ScoreSection() {
         <table className="pg-table">
           <thead><tr><th>기준</th><th>약자</th><th>설명</th><th>배점</th></tr></thead>
           <tbody>
-            <tr><td>구체성 (Specificity)</td><td className="pg-badge">S</td><td>요청이 구체적이고 명확한가</td><td>20점</td></tr>
-            <tr><td>맥락 (Context)</td><td className="pg-badge">C</td><td>충분한 배경 정보를 제공했는가</td><td>20점</td></tr>
-            <tr><td>출력지정 (Output)</td><td className="pg-badge">O</td><td>원하는 결과 형식을 명시했는가</td><td>20점</td></tr>
-            <tr><td>역할부여 (Role)</td><td className="pg-badge">R</td><td>적절한 전문가 역할을 지정했는가</td><td>20점</td></tr>
-            <tr><td>효과성 (Effectiveness)</td><td className="pg-badge">E</td><td>실제로 원하는 결과를 얻었는가</td><td>20점</td></tr>
+            <tr><td>구체성 (Specificity)</td><td><span className="pg-badge badge-s">S</span></td><td>요청이 구체적이고 명확한가</td><td>20점</td></tr>
+            <tr><td>맥락 (Context)</td><td><span className="pg-badge badge-c">C</span></td><td>충분한 배경 정보를 제공했는가</td><td>20점</td></tr>
+            <tr><td>출력지정 (Output)</td><td><span className="pg-badge badge-o">O</span></td><td>원하는 결과 형식을 명시했는가</td><td>20점</td></tr>
+            <tr><td>역할부여 (Role)</td><td><span className="pg-badge badge-r">R</span></td><td>적절한 전문가 역할을 지정했는가</td><td>20점</td></tr>
+            <tr><td>효과성 (Effectiveness)</td><td><span className="pg-badge badge-e">E</span></td><td>실제로 원하는 결과를 얻었는가</td><td>20점</td></tr>
           </tbody>
         </table>
       </div>

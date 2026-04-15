@@ -630,9 +630,14 @@
   border-radius: 4px;
   font-weight: 700;
   font-size: 0.85rem;
-  background: var(--primary-blue);
   color: #fff;
 }
+
+.badge-s { background: #7C3AED; }
+.badge-c { background: #2563EB; }
+.badge-o { background: #059669; }
+.badge-r { background: #D97706; }
+.badge-e { background: #DC2626; }
 
 .grade {
   display: inline-block;
