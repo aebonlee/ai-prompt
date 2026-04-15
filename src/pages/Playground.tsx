@@ -11,17 +11,17 @@ const sideMenuItems = [
 ]
 
 const templates = [
-  { label: 'Few-shot 예시', prompt: '다음 예시를 참고하여 답변해주세요.\n\n질문: 사과는 무슨 색인가요?\n답변: 빨간색입니다.\n\n질문: 바나나는 무슨 색인가요?\n답변: 노란색입니다.\n\n질문: 포도는 무슨 색인가요?\n답변:' },
-  { label: 'Chain-of-Thought', prompt: '문제를 단계별로 풀어주세요.\n\n문제: 한 상자에 사과가 12개 있습니다. 3명이 동일하게 나누어 먹고, 남은 사과의 반을 동생에게 주었습니다. 최종적으로 남은 사과는 몇 개인가요?\n\n풀이 과정:' },
-  { label: '역할 부여', prompt: '당신은 10년 경력의 시니어 프론트엔드 개발자입니다.\n코드 리뷰를 할 때 다음 관점에서 피드백을 제공합니다:\n1. 성능 최적화\n2. 코드 가독성\n3. 보안 취약점\n\n다음 코드를 리뷰해주세요:\n```javascript\nconst data = fetch("/api/users").then(r => r.json())\n```' },
-  { label: '구조화된 출력', prompt: '다음 텍스트에서 정보를 추출하여 JSON 형식으로 정리해주세요.\n\n텍스트: "삼성전자는 2024년 1분기 매출 71.9조원을 기록했으며, 영업이익은 6.6조원입니다. 반도체 부문이 실적 개선을 주도했습니다."\n\n출력 형식:\n{\n  "company": "",\n  "period": "",\n  "revenue": "",\n  "operating_profit": "",\n  "key_driver": ""\n}' },
-  { label: '비교 분석', prompt: '다음 두 가지 기술을 아래 기준으로 비교 분석해주세요.\n\n비교 대상: React vs Vue.js\n\n비교 기준:\n1. 학습 곡선\n2. 생태계 크기\n3. 성능\n4. 취업 시장\n5. 커뮤니티 활성도\n\n표 형식으로 정리하고 결론을 제시해주세요.' }
+  { label: 'Few-shot 예시', missing: '역할·맥락·제약 없음', prompt: '다음 예시를 참고하여 답변해주세요.\n\n질문: 사과는 무슨 색인가요?\n답변: 빨간색입니다.\n\n질문: 바나나는 무슨 색인가요?\n답변: 노란색입니다.\n\n질문: 포도는 무슨 색인가요?\n답변:' },
+  { label: 'Chain-of-Thought', missing: '역할·맥락·출력형식 없음', prompt: '문제를 단계별로 풀어주세요.\n\n문제: 한 상자에 사과가 12개 있습니다. 3명이 동일하게 나누어 먹고, 남은 사과의 반을 동생에게 주었습니다. 최종적으로 남은 사과는 몇 개인가요?\n\n풀이 과정:' },
+  { label: '역할 부여', missing: '맥락·제약 없음', prompt: '당신은 10년 경력의 시니어 프론트엔드 개발자입니다.\n코드 리뷰를 할 때 다음 관점에서 피드백을 제공합니다:\n1. 성능 최적화\n2. 코드 가독성\n3. 보안 취약점\n\n다음 코드를 리뷰해주세요:\n```javascript\nconst data = fetch("/api/users").then(r => r.json())\n```' },
+  { label: '구조화된 출력', missing: '역할·맥락·제약 없음', prompt: '다음 텍스트에서 정보를 추출하여 JSON 형식으로 정리해주세요.\n\n텍스트: "삼성전자는 2024년 1분기 매출 71.9조원을 기록했으며, 영업이익은 6.6조원입니다. 반도체 부문이 실적 개선을 주도했습니다."\n\n출력 형식:\n{\n  "company": "",\n  "period": "",\n  "revenue": "",\n  "operating_profit": "",\n  "key_driver": ""\n}' },
+  { label: '비교 분석', missing: '역할·맥락 없음', prompt: '다음 두 가지 기술을 아래 기준으로 비교 분석해주세요.\n\n비교 대상: React vs Vue.js\n\n비교 기준:\n1. 학습 곡선\n2. 생태계 크기\n3. 성능\n4. 취업 시장\n5. 커뮤니티 활성도\n\n표 형식으로 정리하고 결론을 제시해주세요.' }
 ]
 
 export default function Playground() {
   const [activeMenu, setActiveMenu] = useState('score')
   const [prompt, setPrompt] = useState('')
-  const [history, setHistory] = useState<Array<{ prompt: string; analysis: string; timestamp: string }>>([])
+  const [history, setHistory] = useState<Array<{ prompt: string; analysis: string; improved: string; timestamp: string }>>([])
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   const autoResize = useCallback(() => {
@@ -39,8 +39,8 @@ export default function Playground() {
 
   const handleAnalyze = () => {
     if (!prompt.trim()) return
-    const analysis = analyzePrompt(prompt)
-    setHistory(prev => [{ prompt, analysis, timestamp: new Date().toLocaleTimeString('ko-KR') }, ...prev])
+    const result = analyzePrompt(prompt)
+    setHistory(prev => [{ prompt, analysis: result.analysis, improved: result.improved, timestamp: new Date().toLocaleTimeString('ko-KR') }, ...prev])
   }
 
   const handleClear = () => {
@@ -68,7 +68,7 @@ export default function Playground() {
                 {sideMenuItems.map(item => (
                   <button
                     key={item.id}
-                    className={`pg-sidebar-btn${activeMenu === item.id ? ' active' : ''}`}
+                    className={`pg-sidebar-btn${activeMenu === item.id ? ' active' : ''}${item.id === 'practice' ? ' practice-highlight' : ''}`}
                     onClick={() => setActiveMenu(item.id)}
                   >
                     {item.label}
@@ -518,23 +518,31 @@ function AdvancedSection() {
 function PracticeSection({ prompt, setPrompt, history, textareaRef, autoResize, onTemplate, onAnalyze, onClear }: {
   prompt: string
   setPrompt: (v: string) => void
-  history: Array<{ prompt: string; analysis: string; timestamp: string }>
+  history: Array<{ prompt: string; analysis: string; improved: string; timestamp: string }>
   textareaRef: React.RefObject<HTMLTextAreaElement | null>
   autoResize: () => void
   onTemplate: (t: typeof templates[0]) => void
   onAnalyze: () => void
   onClear: () => void
 }) {
+  const handleApplyImproved = (improved: string) => {
+    setPrompt(improved)
+    requestAnimationFrame(autoResize)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <div className="pg-section">
       <h2>프롬프트 실습</h2>
-      <p className="pg-desc">프롬프트를 직접 작성하고 구조를 분석해보세요.</p>
+      <p className="pg-desc">프롬프트를 직접 작성하고 SCORE 기준으로 분석 & 수정 제안을 받아보세요.</p>
 
       <h3>템플릿 선택</h3>
+      <p className="pg-desc" style={{ marginBottom: '12px', fontSize: '0.85rem' }}>각 템플릿에는 의도적으로 부족한 요소가 있습니다. 분석 후 수정 제안을 확인해보세요.</p>
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
         {templates.map((t, i) => (
-          <button key={i} className="btn btn-secondary" style={{ padding: '8px 16px', fontSize: '0.85rem' }} onClick={() => onTemplate(t)}>
-            {t.label}
+          <button key={i} className="pg-template-btn" onClick={() => onTemplate(t)}>
+            <span className="pg-template-label">{t.label}</span>
+            <span className="pg-template-missing">{t.missing}</span>
           </button>
         ))}
       </div>
@@ -557,9 +565,21 @@ function PracticeSection({ prompt, setPrompt, history, textareaRef, autoResize, 
         <div style={{ marginTop: '40px' }}>
           <h3>분석 결과</h3>
           {history.map((item, i) => (
-            <div key={i} className="playground-output" style={{ marginBottom: '16px' }}>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-light)', marginBottom: '12px' }}>{item.timestamp}</div>
-              <div style={{ whiteSpace: 'pre-wrap' }}>{item.analysis}</div>
+            <div key={i} style={{ marginBottom: '24px' }}>
+              <div className="playground-output">
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-light)', marginBottom: '12px' }}>{item.timestamp}</div>
+                <div style={{ whiteSpace: 'pre-wrap' }}>{item.analysis}</div>
+              </div>
+              <div className="pg-improved-box">
+                <div className="pg-improved-header">
+                  <span className="pg-improved-label">수정 제안 프롬프트</span>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <button className="btn btn-secondary" style={{ padding: '4px 12px', fontSize: '0.78rem' }} onClick={() => navigator.clipboard.writeText(item.improved)}>복사</button>
+                    <button className="btn btn-primary" style={{ padding: '4px 12px', fontSize: '0.78rem' }} onClick={() => handleApplyImproved(item.improved)}>적용</button>
+                  </div>
+                </div>
+                <pre className="pg-improved-content">{item.improved}</pre>
+              </div>
             </div>
           ))}
         </div>
@@ -584,27 +604,113 @@ function analyzePrompt(prompt: string) {
   if (/컨텍스트|배경|상황|맥락/.test(prompt)) techniques.push('컨텍스트 제공 (Context Setting)')
   if (techniques.length === 0) techniques.push('기본 질의 (Basic Query)')
 
-  let score = 50
-  if (charCount > 100) score += 10
-  if (charCount > 300) score += 10
-  if (techniques.length > 1) score += 15
-  if (techniques.length > 3) score += 10
-  if (/\n/.test(prompt)) score += 5
-  if (/\d\.|\-\s/.test(prompt)) score += 5
+  // SCORE 채점
+  const hasRole = /당신은|너는|역할|전문가|시니어|경력/.test(prompt)
+  const hasContext = /배경|상황|맥락|컨텍스트|위해|목적|대상/.test(prompt)
+  const hasOutput = /JSON|표|형식|포맷|markdown|목록|리스트|구조/.test(prompt)
+  const hasConstraint = /제약|조건|규칙|반드시|하지 마|이내|이상|미만/.test(prompt)
+  const hasExample = /예시|예:|답변:|질문:/.test(prompt)
+  const hasSteps = /단계별|step by step|과정|순서대로|\d\)|\d\./.test(prompt)
 
-  let quality = '보통'
-  if (score >= 80) quality = '우수'
-  else if (score >= 60) quality = '양호'
+  const sScore = charCount < 30 ? 6 : charCount < 80 ? 10 : charCount < 200 ? 14 : 18
+  const cScore = hasContext ? (charCount > 200 ? 16 : 12) : 5
+  const oScore = hasOutput ? 16 : 5
+  const rScore = hasRole ? 17 : 3
+  const eScore = Math.min(20, Math.round((sScore + cScore + oScore + rScore) / 4) + (hasExample ? 4 : 0) + (hasSteps ? 3 : 0))
+  const totalScore = sScore + cScore + oScore + rScore + eScore
 
-  return `[프롬프트 분석 결과]
+  let grade = 'D (부족)'
+  if (totalScore >= 90) grade = 'S (탁월)'
+  else if (totalScore >= 80) grade = 'A (우수)'
+  else if (totalScore >= 70) grade = 'B (보통)'
+  else if (totalScore >= 60) grade = 'C (미흡)'
+
+  // 개선 제안
+  const suggestions: string[] = []
+  if (!hasRole) suggestions.push('역할 부여: "당신은 [전문 분야] 전문가입니다"를 앞에 추가해보세요.')
+  if (!hasContext) suggestions.push('맥락 제공: 작업의 배경, 목적, 대상 독자 정보를 추가해보세요.')
+  if (!hasOutput) suggestions.push('출력 형식: 원하는 결과 형태(표, 목록, JSON 등)를 명시해보세요.')
+  if (!hasConstraint) suggestions.push('제약 조건: 길이, 톤, 난이도 등 제약을 추가하면 결과가 정교해집니다.')
+  if (!hasExample) suggestions.push('예시 추가: 원하는 결과의 예시를 1-2개 포함하면 정확도가 올라갑니다.')
+  if (!hasSteps) suggestions.push('단계 구분: 복잡한 요청은 번호를 매겨 단계별로 분리해보세요.')
+  if (charCount < 50) suggestions.push('분량 부족: 프롬프트가 너무 짧습니다. 더 구체적인 지시사항을 추가하세요.')
+  if (suggestions.length === 0) suggestions.push('훌륭한 프롬프트입니다! 다양한 기법이 잘 활용되고 있습니다.')
+
+  // 수정 제안 프롬프트 생성
+  const improved = generateImprovedPrompt(prompt, { hasRole, hasContext, hasOutput, hasConstraint, hasExample, hasSteps })
+
+  const analysis = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 프롬프트 분석 결과
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 글자 수: ${charCount}자 | 단어 수: ${wordCount}개 | 줄 수: ${lines.length}줄
 
-사용된 기법:
-${techniques.map(t => `  - ${t}`).join('\n')}
+▶ 사용된 기법:
+${techniques.map(t => `  ✓ ${t}`).join('\n')}
 
-프롬프트 품질: ${quality} (${Math.min(score, 100)}점/100점)
+▶ SCORE 평가:
+  S 구체성: ${sScore}/20점${sScore < 14 ? ' ⚠' : ' ✔'}
+  C 맥  락: ${cScore}/20점${cScore < 12 ? ' ⚠' : ' ✔'}
+  O 출력지정: ${oScore}/20점${oScore < 12 ? ' ⚠' : ' ✔'}
+  R 역할부여: ${rScore}/20점${rScore < 12 ? ' ⚠' : ' ✔'}
+  E 효과성: ${eScore}/20점${eScore < 12 ? ' ⚠' : ' ✔'}
+  ─────────────────
+  총점: ${totalScore}/100점  |  등급: ${grade}
 
-개선 제안:
-${charCount < 50 ? '  - 프롬프트가 너무 짧습니다. 더 구체적인 지시사항을 추가해보세요.\n' : ''}${!techniques.includes('역할 부여 (Role Assignment)') ? '  - 역할 부여를 추가하면 더 전문적인 답변을 받을 수 있습니다.\n' : ''}${!techniques.includes('출력 형식 지정 (Output Formatting)') ? '  - 원하는 출력 형식을 지정하면 더 구조화된 답변을 받을 수 있습니다.\n' : ''}${techniques.length <= 1 ? '  - 여러 기법을 조합하면 더 높은 품질의 결과를 얻을 수 있습니다.' : '  - 좋은 프롬프트입니다! 다양한 기법이 잘 활용되고 있습니다.'}`
+▶ 개선 제안:
+${suggestions.map(s => `  💡 ${s}`).join('\n')}`
+
+  return { analysis, improved }
+}
+
+/* ─── 수정 프롬프트 생성 ─── */
+function generateImprovedPrompt(
+  original: string,
+  flags: { hasRole: boolean; hasContext: boolean; hasOutput: boolean; hasConstraint: boolean; hasExample: boolean; hasSteps: boolean }
+) {
+  const parts: string[] = []
+
+  // 1) 역할 부여 추가
+  if (!flags.hasRole) {
+    const topic = extractTopic(original)
+    parts.push(`당신은 ${topic} 분야의 전문가입니다.`)
+  }
+
+  // 2) 맥락 추가
+  if (!flags.hasContext) {
+    parts.push('[배경] 이 작업의 목적은 실무에서 활용하기 위함이며, 대상은 해당 분야 초중급자입니다.')
+  }
+
+  // 원본 프롬프트 삽입
+  parts.push('')
+  parts.push(original.trim())
+
+  // 3) 출력 형식 추가
+  if (!flags.hasOutput) {
+    parts.push('')
+    parts.push('[출력 형식] 결과를 구조화된 형태(제목, 번호 목록, 표 등)로 정리해주세요.')
+  }
+
+  // 4) 제약 조건 추가
+  if (!flags.hasConstraint) {
+    parts.push('[제약] 핵심 내용 중심으로 간결하게 작성해주세요.')
+  }
+
+  // 5) 단계 구분 제안
+  if (!flags.hasSteps && original.length > 80) {
+    parts.push('[요청] 단계별로 나누어 설명해주세요.')
+  }
+
+  return parts.join('\n')
+}
+
+function extractTopic(prompt: string): string {
+  if (/코드|프로그래밍|개발|함수|API|리액트|자바|파이썬/.test(prompt)) return '소프트웨어 개발'
+  if (/마케팅|광고|브랜드|고객|매출/.test(prompt)) return '마케팅'
+  if (/번역|영어|일본어|한국어|언어/.test(prompt)) return '번역 및 언어'
+  if (/데이터|분석|통계|차트|그래프/.test(prompt)) return '데이터 분석'
+  if (/글쓰기|작문|에세이|보고서|문서/.test(prompt)) return '글쓰기'
+  if (/디자인|UI|UX|레이아웃/.test(prompt)) return 'UX/UI 디자인'
+  if (/교육|학습|수업|강의|학생/.test(prompt)) return '교육'
+  return '해당'
 }

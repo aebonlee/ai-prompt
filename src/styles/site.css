@@ -557,6 +557,30 @@
   font-weight: 600;
 }
 
+.pg-sidebar-btn.practice-highlight {
+  margin-top: 8px;
+  border-top: 1px solid var(--border-light);
+  padding-top: 14px;
+  color: var(--primary-blue);
+  font-weight: 600;
+  position: relative;
+}
+
+.pg-sidebar-btn.practice-highlight::before {
+  content: '▶ ';
+  font-size: 0.7rem;
+}
+
+.pg-sidebar-btn.practice-highlight:not(.active):hover {
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
+}
+
+.pg-sidebar-btn.practice-highlight.active {
+  background: linear-gradient(135deg, var(--primary-blue), #a855f7);
+  color: #fff;
+}
+
 .pg-content {
   min-width: 0;
 }
@@ -712,6 +736,70 @@
   color: var(--text-primary) !important;
 }
 
+.pg-improved-box {
+  margin-top: 12px;
+  border: 2px solid var(--primary-blue);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.pg-improved-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: var(--primary-blue-bg);
+  border-bottom: 1px solid var(--primary-blue);
+}
+
+.pg-improved-label {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--primary-blue);
+}
+
+.pg-improved-content {
+  padding: 16px;
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: var(--bg-white);
+  color: var(--text-primary);
+}
+
+.pg-template-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-white);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.pg-template-btn:hover {
+  border-color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+}
+
+.pg-template-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pg-template-missing {
+  font-size: 0.7rem;
+  color: #DC2626;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
   .pg-layout {
     grid-template-columns: 1fr;
@@ -733,6 +821,13 @@
     padding: 8px 12px;
     font-size: 0.82rem;
     white-space: nowrap;
+  }
+
+  .pg-sidebar-btn.practice-highlight {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 8px;
+    border-left: 2px solid var(--primary-blue);
   }
 
   .pg-table-sm th,
