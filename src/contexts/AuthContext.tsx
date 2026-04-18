@@ -1,7 +1,8 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import {createContext, useContext, useState, useEffect, useCallback} from 'react'
 import { supabase } from '../config/supabase'
 import { isAdmin as isAdminEmail } from '../config/admin'
 import { useIdleTimeout } from '../hooks/useIdleTimeout';
+import ProfileCompleteModal from '../components/ProfileCompleteModal';
 
 const AuthContext = createContext<any>(null)
 
@@ -209,13 +210,19 @@ export function AuthProvider({ children }) {
   useIdleTimeout({
   enabled: !!user,
   onTimeout: () => {
-  supabase.auth.signOut();
+  supabase?.auth.signOut();
   },
   });
+  const refreshProfile = useCallback(async () => { if (user) await loadProfile(user); }, [user, loadProfile]);
+  const needsProfileCompletion = !!user && !!profile && (!profile.name || !profile.phone);
+
 
   return (
     <AuthContext.Provider value={value}>
       {children}
+      {needsProfileCompletion && user && (
+        <ProfileCompleteModal user={user} onComplete={refreshProfile} />
+      )}
     </AuthContext.Provider>
   )
 }
